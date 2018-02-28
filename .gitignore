@@ -1,0 +1,19 @@
+# Build and Release Folders
+bin-debug/
+bin-release/
+bin/
+out/
+
+# Project property files
+.settings/
+.flexProperties
+.FlexUnitSettings
+
+# OS X folders
+.DS_Store
+
+# IntelliJ IDEA
+*.iws
+**/.idea/workspace.xml
+**/.idea/tasks.xml
+**/.idea/dictionaries
