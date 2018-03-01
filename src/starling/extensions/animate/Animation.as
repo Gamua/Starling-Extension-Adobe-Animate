@@ -6,6 +6,7 @@ package starling.extensions.animate
     {
         private var _atlas:AnimationAtlas;
         private var _currentTime:Number;
+        private var _frameRate:Number;
 
         public function Animation(data:Object, atlas:AnimationAtlas)
         {
@@ -13,23 +14,26 @@ package starling.extensions.animate
 
             _atlas = atlas;
             _currentTime = 0;
+            _frameRate = _atlas.frameRate;
 
-            recompose();
+            update();
         }
 
         public function advanceTime(time:Number):void
         {
+            var prevTime:Number = _currentTime;
             _currentTime += time;
-            currentFrame = _currentTime * frameRate;
+
+            if (int(prevTime * _frameRate) != int(_currentTime * _frameRate)) // frame changes
+            {
+                if (loop != LoopMode.SINGLE_FRAME && type != SymbolType.MOVIE_CLIP)
+                    currentFrame = _currentTime * _frameRate;
+
+                nextFrame_MovieClips();
+            }
         }
 
-        override public function set currentFrame(value:int):void
-        {
-            if (value != currentFrame)
-                super.currentFrame = value;
-        }
-
-        public function get frameRate():Number { return _atlas.frameRate; }
-        public function set frameRate(value:Number):void { _atlas.frameRate = value; }
+        public function get frameRate():Number { return _frameRate; }
+        public function set frameRate(value:Number):void { _frameRate = value; }
     }
 }

@@ -11,7 +11,6 @@ package
     import starling.extensions.animate.AnimateFactory;
     import starling.extensions.animate.Animation;
     import starling.extensions.animate.AnimationAtlas;
-    import starling.extensions.animate.LoopMode;
     import starling.textures.TextureAtlas;
 
     public class Demo extends Sprite
@@ -31,7 +30,7 @@ package
             _assets.registerFactory(new AnimateFactory(), 10);
 
             var appDir:File = File.applicationDirectory;
-            _assets.enqueue(appDir.resolvePath("assets/moledig/"));
+            _assets.enqueue(appDir.resolvePath("assets/mole/"));
             _assets.loadQueue(onAssetsLoaded);
 
             stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
@@ -48,7 +47,6 @@ package
             _animation.x = 300;
             _animation.y = 600;
             _animation.frameRate = 20;
-            _animation.loop = LoopMode.SINGLE_FRAME;
             addChild(_animation);
 
             Starling.juggler.add(_animation);
@@ -57,7 +55,7 @@ package
         private function onKeyDown(e:Event, keyCode:uint):void
         {
             if (keyCode == Keyboard.RIGHT && _animation)
-                _animation.nextFrame();
+                _animation.currentFrame += 1;
             else if (keyCode == Keyboard.LEFT && _animation)
                 _animation.currentFrame -= 1;
         }

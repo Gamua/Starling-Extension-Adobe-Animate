@@ -27483,8 +27483,10 @@
                                         {
                                             "SYMBOL_Instance": {
                                                 "SYMBOL_name": "Symbol 2",
-                                                "Instance_Name": "",
-                                                "symbolType": "movieclip",
+                                                "Instance_Name": "InstName",
+                                                "symbolType": "graphic",
+                                                "firstFrame": 0,
+                                                "loop": "loop",
                                                 "transformationPoint": {
                                                     "x": 26.1,
                                                     "y": 58.15
@@ -27535,8 +27537,10 @@
                                         {
                                             "SYMBOL_Instance": {
                                                 "SYMBOL_name": "Symbol 2",
-                                                "Instance_Name": "",
-                                                "symbolType": "movieclip",
+                                                "Instance_Name": "InstName",
+                                                "symbolType": "graphic",
+                                                "firstFrame": 1,
+                                                "loop": "loop",
                                                 "transformationPoint": {
                                                     "x": 26.1,
                                                     "y": 58.15
@@ -27587,8 +27591,10 @@
                                         {
                                             "SYMBOL_Instance": {
                                                 "SYMBOL_name": "Symbol 2",
-                                                "Instance_Name": "",
-                                                "symbolType": "movieclip",
+                                                "Instance_Name": "InstName",
+                                                "symbolType": "graphic",
+                                                "firstFrame": 2,
+                                                "loop": "loop",
                                                 "transformationPoint": {
                                                     "x": 26.1,
                                                     "y": 58.15
@@ -27639,8 +27645,10 @@
                                         {
                                             "SYMBOL_Instance": {
                                                 "SYMBOL_name": "Symbol 2",
-                                                "Instance_Name": "",
-                                                "symbolType": "movieclip",
+                                                "Instance_Name": "InstName",
+                                                "symbolType": "graphic",
+                                                "firstFrame": 3,
+                                                "loop": "loop",
                                                 "transformationPoint": {
                                                     "x": 26.1,
                                                     "y": 58.15
@@ -27691,8 +27699,10 @@
                                         {
                                             "SYMBOL_Instance": {
                                                 "SYMBOL_name": "Symbol 2",
-                                                "Instance_Name": "",
-                                                "symbolType": "movieclip",
+                                                "Instance_Name": "InstName",
+                                                "symbolType": "graphic",
+                                                "firstFrame": 4,
+                                                "loop": "loop",
                                                 "transformationPoint": {
                                                     "x": 26.1,
                                                     "y": 58.15
@@ -27743,8 +27753,10 @@
                                         {
                                             "SYMBOL_Instance": {
                                                 "SYMBOL_name": "Symbol 2",
-                                                "Instance_Name": "",
-                                                "symbolType": "movieclip",
+                                                "Instance_Name": "InstName",
+                                                "symbolType": "graphic",
+                                                "firstFrame": 5,
+                                                "loop": "loop",
                                                 "transformationPoint": {
                                                     "x": 26.1,
                                                     "y": 58.15
@@ -27795,8 +27807,10 @@
                                         {
                                             "SYMBOL_Instance": {
                                                 "SYMBOL_name": "Symbol 2",
-                                                "Instance_Name": "",
-                                                "symbolType": "movieclip",
+                                                "Instance_Name": "InstName",
+                                                "symbolType": "graphic",
+                                                "firstFrame": 6,
+                                                "loop": "loop",
                                                 "transformationPoint": {
                                                     "x": 26.1,
                                                     "y": 58.15
@@ -27847,8 +27861,10 @@
                                         {
                                             "SYMBOL_Instance": {
                                                 "SYMBOL_name": "Symbol 2",
-                                                "Instance_Name": "",
-                                                "symbolType": "movieclip",
+                                                "Instance_Name": "InstName",
+                                                "symbolType": "graphic",
+                                                "firstFrame": 7,
+                                                "loop": "loop",
                                                 "transformationPoint": {
                                                     "x": 26.1,
                                                     "y": 58.15
@@ -27899,8 +27915,10 @@
                                         {
                                             "SYMBOL_Instance": {
                                                 "SYMBOL_name": "Symbol 2",
-                                                "Instance_Name": "",
-                                                "symbolType": "movieclip",
+                                                "Instance_Name": "InstName",
+                                                "symbolType": "graphic",
+                                                "firstFrame": 8,
+                                                "loop": "loop",
                                                 "transformationPoint": {
                                                     "x": 26.1,
                                                     "y": 58.15
@@ -27951,8 +27969,10 @@
                                         {
                                             "SYMBOL_Instance": {
                                                 "SYMBOL_name": "Symbol 2",
-                                                "Instance_Name": "",
-                                                "symbolType": "movieclip",
+                                                "Instance_Name": "InstName",
+                                                "symbolType": "graphic",
+                                                "firstFrame": 9,
+                                                "loop": "loop",
                                                 "transformationPoint": {
                                                     "x": 26.1,
                                                     "y": 58.15
@@ -28003,8 +28023,10 @@
                                         {
                                             "SYMBOL_Instance": {
                                                 "SYMBOL_name": "Symbol 2",
-                                                "Instance_Name": "",
-                                                "symbolType": "movieclip",
+                                                "Instance_Name": "InstName",
+                                                "symbolType": "graphic",
+                                                "firstFrame": 10,
+                                                "loop": "loop",
                                                 "transformationPoint": {
                                                     "x": 26.1,
                                                     "y": 58.15
@@ -28055,8 +28077,10 @@
                                         {
                                             "SYMBOL_Instance": {
                                                 "SYMBOL_name": "Symbol 2",
-                                                "Instance_Name": "",
-                                                "symbolType": "movieclip",
+                                                "Instance_Name": "InstName",
+                                                "symbolType": "graphic",
+                                                "firstFrame": 11,
+                                                "loop": "loop",
                                                 "transformationPoint": {
                                                     "x": 26.1,
                                                     "y": 58.15
@@ -28107,8 +28131,10 @@
                                         {
                                             "SYMBOL_Instance": {
                                                 "SYMBOL_name": "Symbol 2",
-                                                "Instance_Name": "",
-                                                "symbolType": "movieclip",
+                                                "Instance_Name": "InstName",
+                                                "symbolType": "graphic",
+                                                "firstFrame": 12,
+                                                "loop": "loop",
                                                 "transformationPoint": {
                                                     "x": 26.1,
                                                     "y": 58.15
@@ -28159,8 +28185,10 @@
                                         {
                                             "SYMBOL_Instance": {
                                                 "SYMBOL_name": "Symbol 2",
-                                                "Instance_Name": "",
-                                                "symbolType": "movieclip",
+                                                "Instance_Name": "InstName",
+                                                "symbolType": "graphic",
+                                                "firstFrame": 13,
+                                                "loop": "loop",
                                                 "transformationPoint": {
                                                     "x": 26.1,
                                                     "y": 58.15
@@ -28211,8 +28239,10 @@
                                         {
                                             "SYMBOL_Instance": {
                                                 "SYMBOL_name": "Symbol 2",
-                                                "Instance_Name": "",
-                                                "symbolType": "movieclip",
+                                                "Instance_Name": "InstName",
+                                                "symbolType": "graphic",
+                                                "firstFrame": 14,
+                                                "loop": "loop",
                                                 "transformationPoint": {
                                                     "x": 26.1,
                                                     "y": 58.15
@@ -28263,8 +28293,10 @@
                                         {
                                             "SYMBOL_Instance": {
                                                 "SYMBOL_name": "Symbol 2",
-                                                "Instance_Name": "",
-                                                "symbolType": "movieclip",
+                                                "Instance_Name": "InstName",
+                                                "symbolType": "graphic",
+                                                "firstFrame": 15,
+                                                "loop": "loop",
                                                 "transformationPoint": {
                                                     "x": 26.1,
                                                     "y": 58.15
@@ -28315,8 +28347,10 @@
                                         {
                                             "SYMBOL_Instance": {
                                                 "SYMBOL_name": "Symbol 2",
-                                                "Instance_Name": "",
-                                                "symbolType": "movieclip",
+                                                "Instance_Name": "InstName",
+                                                "symbolType": "graphic",
+                                                "firstFrame": 16,
+                                                "loop": "loop",
                                                 "transformationPoint": {
                                                     "x": 26.1,
                                                     "y": 58.15
@@ -28367,8 +28401,10 @@
                                         {
                                             "SYMBOL_Instance": {
                                                 "SYMBOL_name": "Symbol 2",
-                                                "Instance_Name": "",
-                                                "symbolType": "movieclip",
+                                                "Instance_Name": "InstName",
+                                                "symbolType": "graphic",
+                                                "firstFrame": 17,
+                                                "loop": "loop",
                                                 "transformationPoint": {
                                                     "x": 26.1,
                                                     "y": 58.15
@@ -28419,8 +28455,10 @@
                                         {
                                             "SYMBOL_Instance": {
                                                 "SYMBOL_name": "Symbol 2",
-                                                "Instance_Name": "",
-                                                "symbolType": "movieclip",
+                                                "Instance_Name": "InstName",
+                                                "symbolType": "graphic",
+                                                "firstFrame": 18,
+                                                "loop": "loop",
                                                 "transformationPoint": {
                                                     "x": 26.1,
                                                     "y": 58.15
@@ -28471,8 +28509,10 @@
                                         {
                                             "SYMBOL_Instance": {
                                                 "SYMBOL_name": "Symbol 2",
-                                                "Instance_Name": "",
-                                                "symbolType": "movieclip",
+                                                "Instance_Name": "InstName",
+                                                "symbolType": "graphic",
+                                                "firstFrame": 19,
+                                                "loop": "loop",
                                                 "transformationPoint": {
                                                     "x": 26.1,
                                                     "y": 58.15
@@ -28549,7 +28589,7 @@
                                     "elements": [
                                         {
                                             "ATLAS_SPRITE_instance": {
-                                                "name": "0011",
+                                                "name": "0010",
                                                 "Position": {
                                                     "x": 60,
                                                     "y": 19
@@ -28564,7 +28604,7 @@
                                     "elements": [
                                         {
                                             "ATLAS_SPRITE_instance": {
-                                                "name": "0012",
+                                                "name": "0010",
                                                 "Position": {
                                                     "x": 60,
                                                     "y": 19
@@ -28579,7 +28619,7 @@
                                     "elements": [
                                         {
                                             "ATLAS_SPRITE_instance": {
-                                                "name": "0013",
+                                                "name": "0010",
                                                 "Position": {
                                                     "x": 60,
                                                     "y": 19
@@ -28594,7 +28634,7 @@
                                     "elements": [
                                         {
                                             "ATLAS_SPRITE_instance": {
-                                                "name": "0014",
+                                                "name": "0010",
                                                 "Position": {
                                                     "x": 60,
                                                     "y": 19
@@ -28609,7 +28649,7 @@
                                     "elements": [
                                         {
                                             "ATLAS_SPRITE_instance": {
-                                                "name": "0015",
+                                                "name": "0010",
                                                 "Position": {
                                                     "x": 60,
                                                     "y": 19
@@ -28624,7 +28664,7 @@
                                     "elements": [
                                         {
                                             "ATLAS_SPRITE_instance": {
-                                                "name": "0016",
+                                                "name": "0010",
                                                 "Position": {
                                                     "x": 60,
                                                     "y": 19
@@ -28639,7 +28679,7 @@
                                     "elements": [
                                         {
                                             "ATLAS_SPRITE_instance": {
-                                                "name": "0017",
+                                                "name": "0010",
                                                 "Position": {
                                                     "x": 60,
                                                     "y": 19
@@ -28654,7 +28694,7 @@
                                     "elements": [
                                         {
                                             "ATLAS_SPRITE_instance": {
-                                                "name": "0018",
+                                                "name": "0010",
                                                 "Position": {
                                                     "x": 60,
                                                     "y": 19
@@ -28669,7 +28709,7 @@
                                     "elements": [
                                         {
                                             "ATLAS_SPRITE_instance": {
-                                                "name": "0019",
+                                                "name": "0010",
                                                 "Position": {
                                                     "x": 60,
                                                     "y": 19
@@ -28684,7 +28724,7 @@
                                     "elements": [
                                         {
                                             "ATLAS_SPRITE_instance": {
-                                                "name": "0020",
+                                                "name": "0010",
                                                 "Position": {
                                                     "x": 60,
                                                     "y": 19
@@ -28699,7 +28739,7 @@
                                     "elements": [
                                         {
                                             "ATLAS_SPRITE_instance": {
-                                                "name": "0021",
+                                                "name": "0010",
                                                 "Position": {
                                                     "x": 60,
                                                     "y": 19
@@ -28714,7 +28754,7 @@
                                     "elements": [
                                         {
                                             "ATLAS_SPRITE_instance": {
-                                                "name": "0022",
+                                                "name": "0010",
                                                 "Position": {
                                                     "x": 60,
                                                     "y": 19
@@ -28729,7 +28769,7 @@
                                     "elements": [
                                         {
                                             "ATLAS_SPRITE_instance": {
-                                                "name": "0023",
+                                                "name": "0010",
                                                 "Position": {
                                                     "x": 60,
                                                     "y": 19
@@ -28744,7 +28784,7 @@
                                     "elements": [
                                         {
                                             "ATLAS_SPRITE_instance": {
-                                                "name": "0024",
+                                                "name": "0010",
                                                 "Position": {
                                                     "x": 60,
                                                     "y": 19
@@ -28759,7 +28799,7 @@
                                     "elements": [
                                         {
                                             "ATLAS_SPRITE_instance": {
-                                                "name": "0025",
+                                                "name": "0010",
                                                 "Position": {
                                                     "x": 60,
                                                     "y": 19
@@ -28774,7 +28814,7 @@
                                     "elements": [
                                         {
                                             "ATLAS_SPRITE_instance": {
-                                                "name": "0026",
+                                                "name": "0010",
                                                 "Position": {
                                                     "x": 60,
                                                     "y": 19
@@ -28789,7 +28829,7 @@
                                     "elements": [
                                         {
                                             "ATLAS_SPRITE_instance": {
-                                                "name": "0027",
+                                                "name": "0010",
                                                 "Position": {
                                                     "x": 60,
                                                     "y": 19
@@ -28804,7 +28844,7 @@
                                     "elements": [
                                         {
                                             "ATLAS_SPRITE_instance": {
-                                                "name": "0028",
+                                                "name": "0010",
                                                 "Position": {
                                                     "x": 60,
                                                     "y": 19
@@ -28819,7 +28859,7 @@
                                     "elements": [
                                         {
                                             "ATLAS_SPRITE_instance": {
-                                                "name": "0029",
+                                                "name": "0010",
                                                 "Position": {
                                                     "x": 60,
                                                     "y": 19
@@ -28840,15 +28880,17 @@
                                         {
                                             "SYMBOL_Instance": {
                                                 "SYMBOL_name": "goggles",
-                                                "Instance_Name": "",
+                                                "Instance_Name": "InstName",
                                                 "bitmap": {
-                                                    "name": "0030",
+                                                    "name": "0011",
                                                     "Position": {
                                                         "x": 0,
                                                         "y": 0
                                                     }
                                                 },
-                                                "symbolType": "movieclip",
+                                                "symbolType": "graphic",
+                                                "firstFrame": 0,
+                                                "loop": "loop",
                                                 "transformationPoint": {
                                                     "x": 4.75,
                                                     "y": 6.05
@@ -28899,15 +28941,17 @@
                                         {
                                             "SYMBOL_Instance": {
                                                 "SYMBOL_name": "goggles",
-                                                "Instance_Name": "",
+                                                "Instance_Name": "InstName",
                                                 "bitmap": {
-                                                    "name": "0030",
+                                                    "name": "0011",
                                                     "Position": {
                                                         "x": 0,
                                                         "y": 0
                                                     }
                                                 },
-                                                "symbolType": "movieclip",
+                                                "symbolType": "graphic",
+                                                "firstFrame": 0,
+                                                "loop": "loop",
                                                 "transformationPoint": {
                                                     "x": 4.75,
                                                     "y": 6.1
@@ -28958,15 +29002,17 @@
                                         {
                                             "SYMBOL_Instance": {
                                                 "SYMBOL_name": "goggles",
-                                                "Instance_Name": "",
+                                                "Instance_Name": "InstName",
                                                 "bitmap": {
-                                                    "name": "0030",
+                                                    "name": "0011",
                                                     "Position": {
                                                         "x": 0,
                                                         "y": 0
                                                     }
                                                 },
-                                                "symbolType": "movieclip",
+                                                "symbolType": "graphic",
+                                                "firstFrame": 0,
+                                                "loop": "loop",
                                                 "transformationPoint": {
                                                     "x": 4.8,
                                                     "y": 6.05
@@ -29017,15 +29063,17 @@
                                         {
                                             "SYMBOL_Instance": {
                                                 "SYMBOL_name": "goggles",
-                                                "Instance_Name": "",
+                                                "Instance_Name": "InstName",
                                                 "bitmap": {
-                                                    "name": "0030",
+                                                    "name": "0011",
                                                     "Position": {
                                                         "x": 0,
                                                         "y": 0
                                                     }
                                                 },
-                                                "symbolType": "movieclip",
+                                                "symbolType": "graphic",
+                                                "firstFrame": 0,
+                                                "loop": "loop",
                                                 "transformationPoint": {
                                                     "x": 4.8,
                                                     "y": 6.05
@@ -29076,15 +29124,17 @@
                                         {
                                             "SYMBOL_Instance": {
                                                 "SYMBOL_name": "goggles",
-                                                "Instance_Name": "",
+                                                "Instance_Name": "InstName",
                                                 "bitmap": {
-                                                    "name": "0030",
+                                                    "name": "0011",
                                                     "Position": {
                                                         "x": 0,
                                                         "y": 0
                                                     }
                                                 },
-                                                "symbolType": "movieclip",
+                                                "symbolType": "graphic",
+                                                "firstFrame": 0,
+                                                "loop": "loop",
                                                 "transformationPoint": {
                                                     "x": 4.8,
                                                     "y": 6.05
@@ -29135,15 +29185,17 @@
                                         {
                                             "SYMBOL_Instance": {
                                                 "SYMBOL_name": "goggles",
-                                                "Instance_Name": "",
+                                                "Instance_Name": "InstName",
                                                 "bitmap": {
-                                                    "name": "0030",
+                                                    "name": "0011",
                                                     "Position": {
                                                         "x": 0,
                                                         "y": 0
                                                     }
                                                 },
-                                                "symbolType": "movieclip",
+                                                "symbolType": "graphic",
+                                                "firstFrame": 0,
+                                                "loop": "loop",
                                                 "transformationPoint": {
                                                     "x": 4.8,
                                                     "y": 6.05
@@ -29194,15 +29246,17 @@
                                         {
                                             "SYMBOL_Instance": {
                                                 "SYMBOL_name": "goggles",
-                                                "Instance_Name": "",
+                                                "Instance_Name": "InstName",
                                                 "bitmap": {
-                                                    "name": "0030",
+                                                    "name": "0011",
                                                     "Position": {
                                                         "x": 0,
                                                         "y": 0
                                                     }
                                                 },
-                                                "symbolType": "movieclip",
+                                                "symbolType": "graphic",
+                                                "firstFrame": 0,
+                                                "loop": "loop",
                                                 "transformationPoint": {
                                                     "x": 4.75,
                                                     "y": 6.05
@@ -29253,15 +29307,17 @@
                                         {
                                             "SYMBOL_Instance": {
                                                 "SYMBOL_name": "goggles",
-                                                "Instance_Name": "",
+                                                "Instance_Name": "InstName",
                                                 "bitmap": {
-                                                    "name": "0030",
+                                                    "name": "0011",
                                                     "Position": {
                                                         "x": 0,
                                                         "y": 0
                                                     }
                                                 },
-                                                "symbolType": "movieclip",
+                                                "symbolType": "graphic",
+                                                "firstFrame": 0,
+                                                "loop": "loop",
                                                 "transformationPoint": {
                                                     "x": 4.75,
                                                     "y": 6.1
@@ -29312,15 +29368,17 @@
                                         {
                                             "SYMBOL_Instance": {
                                                 "SYMBOL_name": "goggles",
-                                                "Instance_Name": "",
+                                                "Instance_Name": "InstName",
                                                 "bitmap": {
-                                                    "name": "0030",
+                                                    "name": "0011",
                                                     "Position": {
                                                         "x": 0,
                                                         "y": 0
                                                     }
                                                 },
-                                                "symbolType": "movieclip",
+                                                "symbolType": "graphic",
+                                                "firstFrame": 0,
+                                                "loop": "loop",
                                                 "transformationPoint": {
                                                     "x": 4.8,
                                                     "y": 6.05
@@ -29371,15 +29429,17 @@
                                         {
                                             "SYMBOL_Instance": {
                                                 "SYMBOL_name": "goggles",
-                                                "Instance_Name": "",
+                                                "Instance_Name": "InstName",
                                                 "bitmap": {
-                                                    "name": "0030",
+                                                    "name": "0011",
                                                     "Position": {
                                                         "x": 0,
                                                         "y": 0
                                                     }
                                                 },
-                                                "symbolType": "movieclip",
+                                                "symbolType": "graphic",
+                                                "firstFrame": 0,
+                                                "loop": "loop",
                                                 "transformationPoint": {
                                                     "x": 4.75,
                                                     "y": 6.05
@@ -29430,15 +29490,17 @@
                                         {
                                             "SYMBOL_Instance": {
                                                 "SYMBOL_name": "goggles",
-                                                "Instance_Name": "",
+                                                "Instance_Name": "InstName",
                                                 "bitmap": {
-                                                    "name": "0030",
+                                                    "name": "0011",
                                                     "Position": {
                                                         "x": 0,
                                                         "y": 0
                                                     }
                                                 },
-                                                "symbolType": "movieclip",
+                                                "symbolType": "graphic",
+                                                "firstFrame": 0,
+                                                "loop": "loop",
                                                 "transformationPoint": {
                                                     "x": 4.8,
                                                     "y": 6.05
@@ -29489,15 +29551,17 @@
                                         {
                                             "SYMBOL_Instance": {
                                                 "SYMBOL_name": "goggles",
-                                                "Instance_Name": "",
+                                                "Instance_Name": "InstName",
                                                 "bitmap": {
-                                                    "name": "0030",
+                                                    "name": "0011",
                                                     "Position": {
                                                         "x": 0,
                                                         "y": 0
                                                     }
                                                 },
-                                                "symbolType": "movieclip",
+                                                "symbolType": "graphic",
+                                                "firstFrame": 0,
+                                                "loop": "loop",
                                                 "transformationPoint": {
                                                     "x": 4.8,
                                                     "y": 6.1
@@ -29548,15 +29612,17 @@
                                         {
                                             "SYMBOL_Instance": {
                                                 "SYMBOL_name": "goggles",
-                                                "Instance_Name": "",
+                                                "Instance_Name": "InstName",
                                                 "bitmap": {
-                                                    "name": "0030",
+                                                    "name": "0011",
                                                     "Position": {
                                                         "x": 0,
                                                         "y": 0
                                                     }
                                                 },
-                                                "symbolType": "movieclip",
+                                                "symbolType": "graphic",
+                                                "firstFrame": 0,
+                                                "loop": "loop",
                                                 "transformationPoint": {
                                                     "x": 4.8,
                                                     "y": 6.05
@@ -29607,15 +29673,17 @@
                                         {
                                             "SYMBOL_Instance": {
                                                 "SYMBOL_name": "goggles",
-                                                "Instance_Name": "",
+                                                "Instance_Name": "InstName",
                                                 "bitmap": {
-                                                    "name": "0030",
+                                                    "name": "0011",
                                                     "Position": {
                                                         "x": 0,
                                                         "y": 0
                                                     }
                                                 },
-                                                "symbolType": "movieclip",
+                                                "symbolType": "graphic",
+                                                "firstFrame": 0,
+                                                "loop": "loop",
                                                 "transformationPoint": {
                                                     "x": 4.8,
                                                     "y": 6.1
@@ -29666,15 +29734,17 @@
                                         {
                                             "SYMBOL_Instance": {
                                                 "SYMBOL_name": "goggles",
-                                                "Instance_Name": "",
+                                                "Instance_Name": "InstName",
                                                 "bitmap": {
-                                                    "name": "0030",
+                                                    "name": "0011",
                                                     "Position": {
                                                         "x": 0,
                                                         "y": 0
                                                     }
                                                 },
-                                                "symbolType": "movieclip",
+                                                "symbolType": "graphic",
+                                                "firstFrame": 0,
+                                                "loop": "loop",
                                                 "transformationPoint": {
                                                     "x": 4.75,
                                                     "y": 6.05
@@ -29725,15 +29795,17 @@
                                         {
                                             "SYMBOL_Instance": {
                                                 "SYMBOL_name": "goggles",
-                                                "Instance_Name": "",
+                                                "Instance_Name": "InstName",
                                                 "bitmap": {
-                                                    "name": "0030",
+                                                    "name": "0011",
                                                     "Position": {
                                                         "x": 0,
                                                         "y": 0
                                                     }
                                                 },
-                                                "symbolType": "movieclip",
+                                                "symbolType": "graphic",
+                                                "firstFrame": 0,
+                                                "loop": "loop",
                                                 "transformationPoint": {
                                                     "x": 4.75,
                                                     "y": 6.05
@@ -29784,15 +29856,17 @@
                                         {
                                             "SYMBOL_Instance": {
                                                 "SYMBOL_name": "goggles",
-                                                "Instance_Name": "",
+                                                "Instance_Name": "InstName",
                                                 "bitmap": {
-                                                    "name": "0030",
+                                                    "name": "0011",
                                                     "Position": {
                                                         "x": 0,
                                                         "y": 0
                                                     }
                                                 },
-                                                "symbolType": "movieclip",
+                                                "symbolType": "graphic",
+                                                "firstFrame": 0,
+                                                "loop": "loop",
                                                 "transformationPoint": {
                                                     "x": 4.8,
                                                     "y": 6.1
@@ -29843,15 +29917,17 @@
                                         {
                                             "SYMBOL_Instance": {
                                                 "SYMBOL_name": "goggles",
-                                                "Instance_Name": "",
+                                                "Instance_Name": "InstName",
                                                 "bitmap": {
-                                                    "name": "0030",
+                                                    "name": "0011",
                                                     "Position": {
                                                         "x": 0,
                                                         "y": 0
                                                     }
                                                 },
-                                                "symbolType": "movieclip",
+                                                "symbolType": "graphic",
+                                                "firstFrame": 0,
+                                                "loop": "loop",
                                                 "transformationPoint": {
                                                     "x": 4.75,
                                                     "y": 6.1
@@ -29902,15 +29978,17 @@
                                         {
                                             "SYMBOL_Instance": {
                                                 "SYMBOL_name": "goggles",
-                                                "Instance_Name": "",
+                                                "Instance_Name": "InstName",
                                                 "bitmap": {
-                                                    "name": "0030",
+                                                    "name": "0011",
                                                     "Position": {
                                                         "x": 0,
                                                         "y": 0
                                                     }
                                                 },
-                                                "symbolType": "movieclip",
+                                                "symbolType": "graphic",
+                                                "firstFrame": 0,
+                                                "loop": "loop",
                                                 "transformationPoint": {
                                                     "x": 4.8,
                                                     "y": 6.05
@@ -29961,15 +30039,17 @@
                                         {
                                             "SYMBOL_Instance": {
                                                 "SYMBOL_name": "goggles",
-                                                "Instance_Name": "",
+                                                "Instance_Name": "InstName",
                                                 "bitmap": {
-                                                    "name": "0030",
+                                                    "name": "0011",
                                                     "Position": {
                                                         "x": 0,
                                                         "y": 0
                                                     }
                                                 },
-                                                "symbolType": "movieclip",
+                                                "symbolType": "graphic",
+                                                "firstFrame": 0,
+                                                "loop": "loop",
                                                 "transformationPoint": {
                                                     "x": 4.75,
                                                     "y": 6.05
@@ -30024,7 +30104,7 @@
                                     "elements": [
                                         {
                                             "ATLAS_SPRITE_instance": {
-                                                "name": "0031",
+                                                "name": "0012",
                                                 "Position": {
                                                     "x": 0,
                                                     "y": 13
@@ -30036,7 +30116,7 @@
                                                 "SYMBOL_name": "head_base",
                                                 "Instance_Name": "",
                                                 "bitmap": {
-                                                    "name": "0032",
+                                                    "name": "0013",
                                                     "Position": {
                                                         "x": 0,
                                                         "y": 0
@@ -30089,7 +30169,7 @@
                                                 "SYMBOL_name": "snout",
                                                 "Instance_Name": "",
                                                 "bitmap": {
-                                                    "name": "0033",
+                                                    "name": "0014",
                                                     "Position": {
                                                         "x": 0,
                                                         "y": 0
@@ -30142,7 +30222,7 @@
                                                 "SYMBOL_name": "ear",
                                                 "Instance_Name": "",
                                                 "bitmap": {
-                                                    "name": "0034",
+                                                    "name": "0015",
                                                     "Position": {
                                                         "x": 0,
                                                         "y": 0
@@ -30198,7 +30278,7 @@
                                     "elements": [
                                         {
                                             "ATLAS_SPRITE_instance": {
-                                                "name": "0035",
+                                                "name": "0016",
                                                 "Position": {
                                                     "x": 0,
                                                     "y": 13
@@ -30210,7 +30290,7 @@
                                                 "SYMBOL_name": "head_base",
                                                 "Instance_Name": "",
                                                 "bitmap": {
-                                                    "name": "0032",
+                                                    "name": "0013",
                                                     "Position": {
                                                         "x": 0,
                                                         "y": 0
@@ -30263,7 +30343,7 @@
                                                 "SYMBOL_name": "snout",
                                                 "Instance_Name": "",
                                                 "bitmap": {
-                                                    "name": "0033",
+                                                    "name": "0014",
                                                     "Position": {
                                                         "x": 0,
                                                         "y": 0
@@ -30316,7 +30396,7 @@
                                                 "SYMBOL_name": "ear",
                                                 "Instance_Name": "",
                                                 "bitmap": {
-                                                    "name": "0034",
+                                                    "name": "0015",
                                                     "Position": {
                                                         "x": 0,
                                                         "y": 0
@@ -30372,7 +30452,7 @@
                                     "elements": [
                                         {
                                             "ATLAS_SPRITE_instance": {
-                                                "name": "0036",
+                                                "name": "0017",
                                                 "Position": {
                                                     "x": 0,
                                                     "y": 13
@@ -30384,7 +30464,7 @@
                                                 "SYMBOL_name": "head_base",
                                                 "Instance_Name": "",
                                                 "bitmap": {
-                                                    "name": "0032",
+                                                    "name": "0013",
                                                     "Position": {
                                                         "x": 0,
                                                         "y": 0
@@ -30437,7 +30517,7 @@
                                                 "SYMBOL_name": "snout",
                                                 "Instance_Name": "",
                                                 "bitmap": {
-                                                    "name": "0033",
+                                                    "name": "0014",
                                                     "Position": {
                                                         "x": 0,
                                                         "y": 0
@@ -30490,7 +30570,7 @@
                                                 "SYMBOL_name": "ear",
                                                 "Instance_Name": "",
                                                 "bitmap": {
-                                                    "name": "0034",
+                                                    "name": "0015",
                                                     "Position": {
                                                         "x": 0,
                                                         "y": 0
@@ -30546,7 +30626,7 @@
                                     "elements": [
                                         {
                                             "ATLAS_SPRITE_instance": {
-                                                "name": "0037",
+                                                "name": "0018",
                                                 "Position": {
                                                     "x": 0,
                                                     "y": 13
@@ -30558,7 +30638,7 @@
                                                 "SYMBOL_name": "head_base",
                                                 "Instance_Name": "",
                                                 "bitmap": {
-                                                    "name": "0032",
+                                                    "name": "0013",
                                                     "Position": {
                                                         "x": 0,
                                                         "y": 0
@@ -30611,7 +30691,7 @@
                                                 "SYMBOL_name": "snout",
                                                 "Instance_Name": "",
                                                 "bitmap": {
-                                                    "name": "0033",
+                                                    "name": "0014",
                                                     "Position": {
                                                         "x": 0,
                                                         "y": 0
@@ -30664,7 +30744,7 @@
                                                 "SYMBOL_name": "ear",
                                                 "Instance_Name": "",
                                                 "bitmap": {
-                                                    "name": "0034",
+                                                    "name": "0015",
                                                     "Position": {
                                                         "x": 0,
                                                         "y": 0
@@ -30720,7 +30800,7 @@
                                     "elements": [
                                         {
                                             "ATLAS_SPRITE_instance": {
-                                                "name": "0038",
+                                                "name": "0019",
                                                 "Position": {
                                                     "x": 0,
                                                     "y": 13
@@ -30732,7 +30812,7 @@
                                                 "SYMBOL_name": "head_base",
                                                 "Instance_Name": "",
                                                 "bitmap": {
-                                                    "name": "0032",
+                                                    "name": "0013",
                                                     "Position": {
                                                         "x": 0,
                                                         "y": 0
@@ -30785,7 +30865,7 @@
                                                 "SYMBOL_name": "snout",
                                                 "Instance_Name": "",
                                                 "bitmap": {
-                                                    "name": "0033",
+                                                    "name": "0014",
                                                     "Position": {
                                                         "x": 0,
                                                         "y": 0
@@ -30838,7 +30918,7 @@
                                                 "SYMBOL_name": "ear",
                                                 "Instance_Name": "",
                                                 "bitmap": {
-                                                    "name": "0034",
+                                                    "name": "0015",
                                                     "Position": {
                                                         "x": 0,
                                                         "y": 0
@@ -30894,7 +30974,7 @@
                                     "elements": [
                                         {
                                             "ATLAS_SPRITE_instance": {
-                                                "name": "0039",
+                                                "name": "0020",
                                                 "Position": {
                                                     "x": 0,
                                                     "y": 13
@@ -30906,7 +30986,7 @@
                                                 "SYMBOL_name": "head_base",
                                                 "Instance_Name": "",
                                                 "bitmap": {
-                                                    "name": "0032",
+                                                    "name": "0013",
                                                     "Position": {
                                                         "x": 0,
                                                         "y": 0
@@ -30959,7 +31039,7 @@
                                                 "SYMBOL_name": "snout",
                                                 "Instance_Name": "",
                                                 "bitmap": {
-                                                    "name": "0033",
+                                                    "name": "0014",
                                                     "Position": {
                                                         "x": 0,
                                                         "y": 0
@@ -31012,7 +31092,7 @@
                                                 "SYMBOL_name": "ear",
                                                 "Instance_Name": "",
                                                 "bitmap": {
-                                                    "name": "0034",
+                                                    "name": "0015",
                                                     "Position": {
                                                         "x": 0,
                                                         "y": 0
@@ -31068,7 +31148,7 @@
                                     "elements": [
                                         {
                                             "ATLAS_SPRITE_instance": {
-                                                "name": "0040",
+                                                "name": "0021",
                                                 "Position": {
                                                     "x": 0,
                                                     "y": 13
@@ -31080,7 +31160,7 @@
                                                 "SYMBOL_name": "head_base",
                                                 "Instance_Name": "",
                                                 "bitmap": {
-                                                    "name": "0032",
+                                                    "name": "0013",
                                                     "Position": {
                                                         "x": 0,
                                                         "y": 0
@@ -31133,7 +31213,7 @@
                                                 "SYMBOL_name": "snout",
                                                 "Instance_Name": "",
                                                 "bitmap": {
-                                                    "name": "0033",
+                                                    "name": "0014",
                                                     "Position": {
                                                         "x": 0,
                                                         "y": 0
@@ -31186,7 +31266,7 @@
                                                 "SYMBOL_name": "ear",
                                                 "Instance_Name": "",
                                                 "bitmap": {
-                                                    "name": "0034",
+                                                    "name": "0015",
                                                     "Position": {
                                                         "x": 0,
                                                         "y": 0
@@ -31242,7 +31322,7 @@
                                     "elements": [
                                         {
                                             "ATLAS_SPRITE_instance": {
-                                                "name": "0041",
+                                                "name": "0022",
                                                 "Position": {
                                                     "x": 0,
                                                     "y": 13
@@ -31254,7 +31334,7 @@
                                                 "SYMBOL_name": "head_base",
                                                 "Instance_Name": "",
                                                 "bitmap": {
-                                                    "name": "0032",
+                                                    "name": "0013",
                                                     "Position": {
                                                         "x": 0,
                                                         "y": 0
@@ -31307,7 +31387,7 @@
                                                 "SYMBOL_name": "snout",
                                                 "Instance_Name": "",
                                                 "bitmap": {
-                                                    "name": "0033",
+                                                    "name": "0014",
                                                     "Position": {
                                                         "x": 0,
                                                         "y": 0
@@ -31360,7 +31440,7 @@
                                                 "SYMBOL_name": "ear",
                                                 "Instance_Name": "",
                                                 "bitmap": {
-                                                    "name": "0034",
+                                                    "name": "0015",
                                                     "Position": {
                                                         "x": 0,
                                                         "y": 0
@@ -31416,7 +31496,7 @@
                                     "elements": [
                                         {
                                             "ATLAS_SPRITE_instance": {
-                                                "name": "0042",
+                                                "name": "0023",
                                                 "Position": {
                                                     "x": 0,
                                                     "y": 13
@@ -31428,7 +31508,7 @@
                                                 "SYMBOL_name": "head_base",
                                                 "Instance_Name": "",
                                                 "bitmap": {
-                                                    "name": "0032",
+                                                    "name": "0013",
                                                     "Position": {
                                                         "x": 0,
                                                         "y": 0
@@ -31481,7 +31561,7 @@
                                                 "SYMBOL_name": "snout",
                                                 "Instance_Name": "",
                                                 "bitmap": {
-                                                    "name": "0033",
+                                                    "name": "0014",
                                                     "Position": {
                                                         "x": 0,
                                                         "y": 0
@@ -31534,7 +31614,7 @@
                                                 "SYMBOL_name": "ear",
                                                 "Instance_Name": "",
                                                 "bitmap": {
-                                                    "name": "0034",
+                                                    "name": "0015",
                                                     "Position": {
                                                         "x": 0,
                                                         "y": 0
@@ -31590,7 +31670,7 @@
                                     "elements": [
                                         {
                                             "ATLAS_SPRITE_instance": {
-                                                "name": "0043",
+                                                "name": "0024",
                                                 "Position": {
                                                     "x": 0,
                                                     "y": 13
@@ -31602,7 +31682,7 @@
                                                 "SYMBOL_name": "head_base",
                                                 "Instance_Name": "",
                                                 "bitmap": {
-                                                    "name": "0032",
+                                                    "name": "0013",
                                                     "Position": {
                                                         "x": 0,
                                                         "y": 0
@@ -31655,7 +31735,7 @@
                                                 "SYMBOL_name": "snout",
                                                 "Instance_Name": "",
                                                 "bitmap": {
-                                                    "name": "0033",
+                                                    "name": "0014",
                                                     "Position": {
                                                         "x": 0,
                                                         "y": 0
@@ -31708,7 +31788,7 @@
                                                 "SYMBOL_name": "ear",
                                                 "Instance_Name": "",
                                                 "bitmap": {
-                                                    "name": "0034",
+                                                    "name": "0015",
                                                     "Position": {
                                                         "x": 0,
                                                         "y": 0
@@ -31764,7 +31844,7 @@
                                     "elements": [
                                         {
                                             "ATLAS_SPRITE_instance": {
-                                                "name": "0044",
+                                                "name": "0025",
                                                 "Position": {
                                                     "x": 0,
                                                     "y": 13
@@ -31776,7 +31856,7 @@
                                                 "SYMBOL_name": "head_base",
                                                 "Instance_Name": "",
                                                 "bitmap": {
-                                                    "name": "0032",
+                                                    "name": "0013",
                                                     "Position": {
                                                         "x": 0,
                                                         "y": 0
@@ -31829,7 +31909,7 @@
                                                 "SYMBOL_name": "snout",
                                                 "Instance_Name": "",
                                                 "bitmap": {
-                                                    "name": "0033",
+                                                    "name": "0014",
                                                     "Position": {
                                                         "x": 0,
                                                         "y": 0
@@ -31882,7 +31962,7 @@
                                                 "SYMBOL_name": "ear",
                                                 "Instance_Name": "",
                                                 "bitmap": {
-                                                    "name": "0034",
+                                                    "name": "0015",
                                                     "Position": {
                                                         "x": 0,
                                                         "y": 0
@@ -31938,7 +32018,7 @@
                                     "elements": [
                                         {
                                             "ATLAS_SPRITE_instance": {
-                                                "name": "0045",
+                                                "name": "0026",
                                                 "Position": {
                                                     "x": 0,
                                                     "y": 13
@@ -31950,7 +32030,7 @@
                                                 "SYMBOL_name": "head_base",
                                                 "Instance_Name": "",
                                                 "bitmap": {
-                                                    "name": "0032",
+                                                    "name": "0013",
                                                     "Position": {
                                                         "x": 0,
                                                         "y": 0
@@ -32003,7 +32083,7 @@
                                                 "SYMBOL_name": "snout",
                                                 "Instance_Name": "",
                                                 "bitmap": {
-                                                    "name": "0033",
+                                                    "name": "0014",
                                                     "Position": {
                                                         "x": 0,
                                                         "y": 0
@@ -32056,7 +32136,7 @@
                                                 "SYMBOL_name": "ear",
                                                 "Instance_Name": "",
                                                 "bitmap": {
-                                                    "name": "0034",
+                                                    "name": "0015",
                                                     "Position": {
                                                         "x": 0,
                                                         "y": 0
@@ -32112,7 +32192,7 @@
                                     "elements": [
                                         {
                                             "ATLAS_SPRITE_instance": {
-                                                "name": "0046",
+                                                "name": "0027",
                                                 "Position": {
                                                     "x": 0,
                                                     "y": 13
@@ -32124,7 +32204,7 @@
                                                 "SYMBOL_name": "head_base",
                                                 "Instance_Name": "",
                                                 "bitmap": {
-                                                    "name": "0032",
+                                                    "name": "0013",
                                                     "Position": {
                                                         "x": 0,
                                                         "y": 0
@@ -32177,7 +32257,7 @@
                                                 "SYMBOL_name": "snout",
                                                 "Instance_Name": "",
                                                 "bitmap": {
-                                                    "name": "0033",
+                                                    "name": "0014",
                                                     "Position": {
                                                         "x": 0,
                                                         "y": 0
@@ -32230,7 +32310,7 @@
                                                 "SYMBOL_name": "ear",
                                                 "Instance_Name": "",
                                                 "bitmap": {
-                                                    "name": "0034",
+                                                    "name": "0015",
                                                     "Position": {
                                                         "x": 0,
                                                         "y": 0
@@ -32286,7 +32366,7 @@
                                     "elements": [
                                         {
                                             "ATLAS_SPRITE_instance": {
-                                                "name": "0047",
+                                                "name": "0028",
                                                 "Position": {
                                                     "x": 0,
                                                     "y": 13
@@ -32298,7 +32378,7 @@
                                                 "SYMBOL_name": "head_base",
                                                 "Instance_Name": "",
                                                 "bitmap": {
-                                                    "name": "0032",
+                                                    "name": "0013",
                                                     "Position": {
                                                         "x": 0,
                                                         "y": 0
@@ -32351,7 +32431,7 @@
                                                 "SYMBOL_name": "snout",
                                                 "Instance_Name": "",
                                                 "bitmap": {
-                                                    "name": "0033",
+                                                    "name": "0014",
                                                     "Position": {
                                                         "x": 0,
                                                         "y": 0
@@ -32404,7 +32484,7 @@
                                                 "SYMBOL_name": "ear",
                                                 "Instance_Name": "",
                                                 "bitmap": {
-                                                    "name": "0034",
+                                                    "name": "0015",
                                                     "Position": {
                                                         "x": 0,
                                                         "y": 0
@@ -32460,7 +32540,7 @@
                                     "elements": [
                                         {
                                             "ATLAS_SPRITE_instance": {
-                                                "name": "0048",
+                                                "name": "0029",
                                                 "Position": {
                                                     "x": 0,
                                                     "y": 13
@@ -32472,7 +32552,7 @@
                                                 "SYMBOL_name": "head_base",
                                                 "Instance_Name": "",
                                                 "bitmap": {
-                                                    "name": "0032",
+                                                    "name": "0013",
                                                     "Position": {
                                                         "x": 0,
                                                         "y": 0
@@ -32525,7 +32605,7 @@
                                                 "SYMBOL_name": "snout",
                                                 "Instance_Name": "",
                                                 "bitmap": {
-                                                    "name": "0033",
+                                                    "name": "0014",
                                                     "Position": {
                                                         "x": 0,
                                                         "y": 0
@@ -32578,7 +32658,7 @@
                                                 "SYMBOL_name": "ear",
                                                 "Instance_Name": "",
                                                 "bitmap": {
-                                                    "name": "0034",
+                                                    "name": "0015",
                                                     "Position": {
                                                         "x": 0,
                                                         "y": 0
@@ -32634,7 +32714,7 @@
                                     "elements": [
                                         {
                                             "ATLAS_SPRITE_instance": {
-                                                "name": "0049",
+                                                "name": "0030",
                                                 "Position": {
                                                     "x": 0,
                                                     "y": 13
@@ -32646,7 +32726,7 @@
                                                 "SYMBOL_name": "head_base",
                                                 "Instance_Name": "",
                                                 "bitmap": {
-                                                    "name": "0032",
+                                                    "name": "0013",
                                                     "Position": {
                                                         "x": 0,
                                                         "y": 0
@@ -32699,7 +32779,7 @@
                                                 "SYMBOL_name": "snout",
                                                 "Instance_Name": "",
                                                 "bitmap": {
-                                                    "name": "0033",
+                                                    "name": "0014",
                                                     "Position": {
                                                         "x": 0,
                                                         "y": 0
@@ -32752,7 +32832,7 @@
                                                 "SYMBOL_name": "ear",
                                                 "Instance_Name": "",
                                                 "bitmap": {
-                                                    "name": "0034",
+                                                    "name": "0015",
                                                     "Position": {
                                                         "x": 0,
                                                         "y": 0
@@ -32808,7 +32888,7 @@
                                     "elements": [
                                         {
                                             "ATLAS_SPRITE_instance": {
-                                                "name": "0050",
+                                                "name": "0031",
                                                 "Position": {
                                                     "x": 0,
                                                     "y": 13
@@ -32820,7 +32900,7 @@
                                                 "SYMBOL_name": "head_base",
                                                 "Instance_Name": "",
                                                 "bitmap": {
-                                                    "name": "0032",
+                                                    "name": "0013",
                                                     "Position": {
                                                         "x": 0,
                                                         "y": 0
@@ -32873,7 +32953,7 @@
                                                 "SYMBOL_name": "snout",
                                                 "Instance_Name": "",
                                                 "bitmap": {
-                                                    "name": "0033",
+                                                    "name": "0014",
                                                     "Position": {
                                                         "x": 0,
                                                         "y": 0
@@ -32926,7 +33006,7 @@
                                                 "SYMBOL_name": "ear",
                                                 "Instance_Name": "",
                                                 "bitmap": {
-                                                    "name": "0034",
+                                                    "name": "0015",
                                                     "Position": {
                                                         "x": 0,
                                                         "y": 0
@@ -32982,7 +33062,7 @@
                                     "elements": [
                                         {
                                             "ATLAS_SPRITE_instance": {
-                                                "name": "0051",
+                                                "name": "0032",
                                                 "Position": {
                                                     "x": 0,
                                                     "y": 13
@@ -32994,7 +33074,7 @@
                                                 "SYMBOL_name": "head_base",
                                                 "Instance_Name": "",
                                                 "bitmap": {
-                                                    "name": "0032",
+                                                    "name": "0013",
                                                     "Position": {
                                                         "x": 0,
                                                         "y": 0
@@ -33047,7 +33127,7 @@
                                                 "SYMBOL_name": "snout",
                                                 "Instance_Name": "",
                                                 "bitmap": {
-                                                    "name": "0033",
+                                                    "name": "0014",
                                                     "Position": {
                                                         "x": 0,
                                                         "y": 0
@@ -33100,7 +33180,7 @@
                                                 "SYMBOL_name": "ear",
                                                 "Instance_Name": "",
                                                 "bitmap": {
-                                                    "name": "0034",
+                                                    "name": "0015",
                                                     "Position": {
                                                         "x": 0,
                                                         "y": 0
@@ -33156,7 +33236,7 @@
                                     "elements": [
                                         {
                                             "ATLAS_SPRITE_instance": {
-                                                "name": "0052",
+                                                "name": "0033",
                                                 "Position": {
                                                     "x": 0,
                                                     "y": 13
@@ -33168,7 +33248,7 @@
                                                 "SYMBOL_name": "head_base",
                                                 "Instance_Name": "",
                                                 "bitmap": {
-                                                    "name": "0032",
+                                                    "name": "0013",
                                                     "Position": {
                                                         "x": 0,
                                                         "y": 0
@@ -33221,7 +33301,7 @@
                                                 "SYMBOL_name": "snout",
                                                 "Instance_Name": "",
                                                 "bitmap": {
-                                                    "name": "0033",
+                                                    "name": "0014",
                                                     "Position": {
                                                         "x": 0,
                                                         "y": 0
@@ -33274,7 +33354,7 @@
                                                 "SYMBOL_name": "ear",
                                                 "Instance_Name": "",
                                                 "bitmap": {
-                                                    "name": "0034",
+                                                    "name": "0015",
                                                     "Position": {
                                                         "x": 0,
                                                         "y": 0
@@ -33330,7 +33410,7 @@
                                     "elements": [
                                         {
                                             "ATLAS_SPRITE_instance": {
-                                                "name": "0053",
+                                                "name": "0034",
                                                 "Position": {
                                                     "x": 0,
                                                     "y": 13
@@ -33342,7 +33422,7 @@
                                                 "SYMBOL_name": "head_base",
                                                 "Instance_Name": "",
                                                 "bitmap": {
-                                                    "name": "0032",
+                                                    "name": "0013",
                                                     "Position": {
                                                         "x": 0,
                                                         "y": 0
@@ -33395,7 +33475,7 @@
                                                 "SYMBOL_name": "snout",
                                                 "Instance_Name": "",
                                                 "bitmap": {
-                                                    "name": "0033",
+                                                    "name": "0014",
                                                     "Position": {
                                                         "x": 0,
                                                         "y": 0
@@ -33448,7 +33528,7 @@
                                                 "SYMBOL_name": "ear",
                                                 "Instance_Name": "",
                                                 "bitmap": {
-                                                    "name": "0034",
+                                                    "name": "0015",
                                                     "Position": {
                                                         "x": 0,
                                                         "y": 0

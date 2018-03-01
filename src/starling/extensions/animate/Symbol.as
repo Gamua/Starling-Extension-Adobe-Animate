@@ -18,6 +18,7 @@ package starling.extensions.animate
         private var _type:String;
         private var _loop:String;
         private var _currentFrame:int;
+        private var _composedFrame:int;
         private var _layers:Sprite;
         private var _bitmap:Image;
         private var _numFrames:int;
@@ -29,10 +30,11 @@ package starling.extensions.animate
         {
             _data = data;
             _atlas = atlas;
+            _composedFrame = -1;
             _numLayers = data.TIMELINE.LAYERS.length;
             _numFrames = getNumFrames();
             _symbolName = data.SYMBOL_name;
-            _type = SymbolType.MOVIE_CLIP;
+            _type = SymbolType.GRAPHIC;
             _loop = LoopMode.LOOP;
 
             createLayers();
@@ -44,43 +46,50 @@ package starling.extensions.animate
             transformationMatrix = sMatrix;
             alpha = 1.0;
             _currentFrame = 0;
+            _composedFrame = -1;
         }
 
+        /** To be called whenever sufficient time for one frame has passed. Does not necessarily
+         *  move 'currentFrame' ahead - depending on the 'loop' mode. MovieClips all move
+         *  forward, though (recursively). */
         public function nextFrame():void
         {
-            currentFrame = _currentFrame + 1;
+            if (_loop != LoopMode.SINGLE_FRAME)
+                currentFrame += 1;
+
+            nextFrame_MovieClips();
         }
 
-        public function recompose():void
+        /** Moves all movie clips ahead one frame, recursively. */
+        protected function nextFrame_MovieClips():void
+        {
+            if (_type == SymbolType.MOVIE_CLIP)
+                currentFrame += 1;
+
+            for (var l:int=0; l<_numLayers; ++l)
+            {
+                var layer:Sprite = getLayer(l);
+                var numElements:int = layer.numChildren;
+
+                for (var e:int=0; e<numElements; ++e)
+                    (layer.getChildAt(e) as Symbol).nextFrame_MovieClips();
+            }
+        }
+
+        protected function update():void
         {
             for (var i:int = 0; i<_numLayers; ++i)
-                advanceLayer(i);
+                updateLayer(i);
+
+            _composedFrame = _currentFrame;
         }
 
-        private function getLayer(layerIndex:int):Sprite
+        private function updateLayer(layerIndex:int):void
         {
-            return _layers.getChildAt(layerIndex) as Sprite;
-        }
-
-        public function get currentFrame():int { return _currentFrame; }
-        public function set currentFrame(value:int):void
-        {
-            _currentFrame = MathUtil.max(value, 0);
-            recompose();
-        }
-
-        private function advanceLayer(layerIndex:int):void
-        {
-            var frameIndex:int = _loop == LoopMode.LOOP ?
-                _currentFrame % _numFrames : MathUtil.min(_currentFrame, _numFrames - 1);
-
             var layer:Sprite = getLayer(layerIndex);
-            var frameData:Object = getFrameData(layerIndex, frameIndex);
+            var frameData:Object = getFrameData(layerIndex, _currentFrame);
             var elements:Array = frameData ? frameData.elements : null;
             var numElements:int = elements ? elements.length : 0;
-
-//            if (layer.name == "starling_beak")
-//                trace(".");
 
             for (var i:int=0; i<numElements; ++i)
             {
@@ -115,16 +124,14 @@ package starling.extensions.animate
                 if (newSymbol.type == SymbolType.GRAPHIC)
                 {
                     var firstFrame:int = elementData.firstFrame;
-                    var frameAge:int = frameIndex - frameData.index;
+                    var frameAge:int = _currentFrame - frameData.index;
 
                     if (newSymbol.loop == LoopMode.SINGLE_FRAME)
                         newSymbol.currentFrame = firstFrame;
+                    else if (newSymbol.loop == LoopMode.LOOP)
+                        newSymbol.currentFrame = (firstFrame + frameAge) % newSymbol._numFrames;
                     else
                         newSymbol.currentFrame = firstFrame + frameAge;
-                }
-                else if (newSymbol.type == SymbolType.MOVIE_CLIP)
-                {
-                    newSymbol.currentFrame += 1;
                 }
             }
 
@@ -207,6 +214,7 @@ package starling.extensions.animate
         private function setLoop(data:String):void
         {
             if (data) _loop = data;
+            else _loop = LoopMode.LOOP;
         }
 
         private function setType(data:String):void
@@ -233,6 +241,25 @@ package starling.extensions.animate
             }
 
             return numFrames || 1;
+        }
+
+        protected function getLayer(layerIndex:int):Sprite
+        {
+            return _layers.getChildAt(layerIndex) as Sprite;
+        }
+
+        public function get currentFrame():int { return _currentFrame; }
+        public function set currentFrame(value:int):void
+        {
+            while (value < 0) value += _numFrames;
+
+            if (_loop == LoopMode.PLAY_ONCE)
+                _currentFrame = MathUtil.clamp(value, 0, _numFrames - 1);
+            else
+                _currentFrame = Math.abs(value % _numFrames);
+
+            if (_composedFrame != _currentFrame)
+                update();
         }
 
         public function get type():String { return _type; }
@@ -274,11 +301,6 @@ package starling.extensions.animate
             }
 
             return null;
-        }
-
-        private function getElementData(layerIndex:int, frameIndex:int, elementIndex:int):Object
-        {
-            return getFrameData(layerIndex, frameIndex).elements[elementIndex];
         }
     }
 }
