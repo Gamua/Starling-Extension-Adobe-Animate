@@ -2,7 +2,7 @@
 <module type="Flex" version="4">
   <component name="FlexBuildConfigurationManager" active="adobe-animate">
     <configurations>
-      <configuration name="adobe-animate" target-platform="Mobile" pure-as="true" main-class="StartupMobile" output-file="adobe-animate.swf" output-folder="$MODULE_DIR$/../../library/idea/out/production/adobe-animate">
+      <configuration name="adobe-animate" target-platform="Mobile" pure-as="true" main-class="StartupMobile" output-file="adobe-animate.swf" output-folder="$MODULE_DIR$/../../temp/out/adobe-animate">
         <dependencies target-player="28.0">
           <entries>
             <entry module-name="starling" build-configuration-name="starling">

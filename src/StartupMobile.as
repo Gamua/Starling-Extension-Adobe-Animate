@@ -22,6 +22,7 @@ package
 
             _starling = new Starling(Demo, stage, viewPort);
             _starling.skipUnchangedFrames = true;
+            _starling.showStats = true;
             _starling.start();
         }
     }

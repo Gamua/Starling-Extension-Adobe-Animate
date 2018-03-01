@@ -2,11 +2,9 @@ package starling.extensions.animate
 {
     import flash.geom.Matrix;
 
-    import starling.display.DisplayObject;
     import starling.display.DisplayObjectContainer;
     import starling.display.Image;
     import starling.display.Sprite;
-    import starling.events.Event;
     import starling.textures.Texture;
     import starling.utils.MathUtil;
 
@@ -15,6 +13,7 @@ package starling.extensions.animate
         public static const BITMAP_SYMBOL_NAME:String = "___atlas_sprite___";
 
         private var _data:Object;
+        private var _atlas:AnimationAtlas;
         private var _symbolName:String;
         private var _type:String;
         private var _loop:String;
@@ -25,16 +24,11 @@ package starling.extensions.animate
         private var _numLayers:int;
 
         private static const sMatrix:Matrix = new Matrix();
-        private static const STD_MATRIX3D_DATA:Object = {
-            "m00": 1, "m01": 0, "m02": 0, "m03": 0,
-            "m10": 0, "m11": 1, "m12": 0, "m13": 0,
-            "m20": 0, "m21": 0, "m22": 1, "m23": 0,
-            "m30": 0, "m31": 0, "m32": 0, "m33": 1
-        };
 
-        public function Symbol(data:Object)
+        public function Symbol(data:Object, atlas:AnimationAtlas)
         {
             _data = data;
+            _atlas = atlas;
             _numLayers = data.TIMELINE.LAYERS.length;
             _numFrames = getNumFrames();
             _symbolName = data.SYMBOL_name;
@@ -42,8 +36,6 @@ package starling.extensions.animate
             _loop = LoopMode.LOOP;
 
             createLayers();
-            preProcessData();
-            addEventListener(Event.ADDED, onAdded);
         }
 
         public function reset():void
@@ -51,16 +43,7 @@ package starling.extensions.animate
             sMatrix.identity();
             transformationMatrix = sMatrix;
             alpha = 1.0;
-            currentFrame = 0;
-        }
-
-        private function onAdded():void
-        {
-            if (animation)
-            {
-                removeEventListener(Event.ADDED, onAdded);
-                advanceLayers();
-            }
+            _currentFrame = 0;
         }
 
         public function nextFrame():void
@@ -68,14 +51,10 @@ package starling.extensions.animate
             currentFrame = _currentFrame + 1;
         }
 
-        private function get animation():Animation
+        public function recompose():void
         {
-            var object:DisplayObject = this;
-
-            while (object && !(object is Animation))
-                object = object.parent;
-
-            return object as Animation;
+            for (var i:int = 0; i<_numLayers; ++i)
+                advanceLayer(i);
         }
 
         private function getLayer(layerIndex:int):Sprite
@@ -87,29 +66,21 @@ package starling.extensions.animate
         public function set currentFrame(value:int):void
         {
             _currentFrame = MathUtil.max(value, 0);
-
-            if (animation)
-                advanceLayers();
-            else
-                addEventListener(Event.ADDED, onAdded);
-        }
-
-        private function advanceLayers():void
-        {
-            for (var i:int = 0, len:int = numLayers; i<len; ++i)
-                advanceLayer(i);
+            recompose();
         }
 
         private function advanceLayer(layerIndex:int):void
         {
             var frameIndex:int = _loop == LoopMode.LOOP ?
-                _currentFrame % _numFrames : MathUtil.max(_currentFrame, _numFrames - 1);
+                _currentFrame % _numFrames : MathUtil.min(_currentFrame, _numFrames - 1);
 
-            var animation:Animation = this.animation;
             var layer:Sprite = getLayer(layerIndex);
             var frameData:Object = getFrameData(layerIndex, frameIndex);
             var elements:Array = frameData ? frameData.elements : null;
             var numElements:int = elements ? elements.length : 0;
+
+//            if (layer.name == "starling_beak")
+//                trace(".");
 
             for (var i:int=0; i<numElements; ++i)
             {
@@ -118,7 +89,7 @@ package starling.extensions.animate
                 var newSymbol:Symbol = null;
                 var symbolName:String = elementData.SYMBOL_name;
 
-                if (!animation.hasSymbol(symbolName))
+                if (!_atlas.hasSymbol(symbolName))
                     symbolName = BITMAP_SYMBOL_NAME;
 
                 if (oldSymbol && oldSymbol._symbolName == symbolName)
@@ -128,10 +99,10 @@ package starling.extensions.animate
                     if (oldSymbol)
                     {
                         oldSymbol.removeFromParent();
-                        animation.putSymbol(oldSymbol);
+                        _atlas.putSymbol(oldSymbol);
                     }
 
-                    newSymbol = animation.getSymbol(symbolName);
+                    newSymbol = _atlas.getSymbol(symbolName);
                     layer.addChildAt(newSymbol, i);
                 }
 
@@ -162,7 +133,7 @@ package starling.extensions.animate
             for (i=0; i<numObsoleteSymbols; ++i)
             {
                 oldSymbol = layer.removeChildAt(numElements) as Symbol;
-                animation.putSymbol(oldSymbol);
+                _atlas.putSymbol(oldSymbol);
             }
         }
 
@@ -181,58 +152,11 @@ package starling.extensions.animate
             }
         }
 
-        private function preProcessData():void
-        {
-            // In Animate CC, layers are sorted front to back.
-            // In Starling, it's the other way round - so we simply reverse the layer data.
-
-            _data.TIMELINE.LAYERS.reverse();
-
-            // We replace all "ATLAS_SPRITE_instance" elements with symbols of the same contents.
-            // That way, we are always only dealing with symbols.
-
-            var numLayers:int = this.numLayers;
-
-            for (var l:int=0; l<numLayers; ++l)
-            {
-                var layerData:Object = getLayerData(l);
-                var frames:Array = layerData.Frames as Array;
-                var numFrames:int = frames.length;
-
-                for (var f:int=0; f<numFrames; ++f)
-                {
-                    var elements:Array = frames[f].elements as Array;
-                    var numElements:int = elements.length;
-
-                    for (var e:int=0; e<numElements; ++e)
-                    {
-                        var element:Object = elements[e];
-
-                        if ("ATLAS_SPRITE_instance" in element)
-                        {
-                            elements[e] = {
-                                SYMBOL_Instance: {
-                                    SYMBOL_name: BITMAP_SYMBOL_NAME,
-                                    Instance_Name: "InstName",
-                                    bitmap: element.ATLAS_SPRITE_instance,
-                                    symbolType: SymbolType.GRAPHIC,
-                                    firstFrame: 0,
-                                    loop: LoopMode.LOOP,
-                                    transformationPoint: { x: 0, y: 0 },
-                                    Matrix3D: STD_MATRIX3D_DATA
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
         public function setBitmap(data:Object):void
         {
             if (data)
             {
-                var texture:Texture = animation.getTexture(data.name);
+                var texture:Texture = _atlas.getTexture(data.name);
 
                 if (_bitmap)
                 {
@@ -241,7 +165,7 @@ package starling.extensions.animate
                 }
                 else
                 {
-                    _bitmap = animation.getImage(texture);
+                    _bitmap = _atlas.getImage(texture);
                     addChild(_bitmap);
                 }
 
@@ -252,7 +176,7 @@ package starling.extensions.animate
             {
                 _bitmap.x = _bitmap.y = 0;
                 _bitmap.removeFromParent();
-                animation.putImage(_bitmap);
+                _atlas.putImage(_bitmap);
                 _bitmap = null;
             }
         }

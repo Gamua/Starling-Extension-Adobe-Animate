@@ -7,9 +7,9 @@ package starling.extensions.animate
     import starling.textures.TextureAtlas;
     import starling.utils.Pool;
 
-    public class AnimateAtlas extends TextureAtlas
+    public class JsonTextureAtlas extends TextureAtlas
     {
-        public function AnimateAtlas(texture:Texture, data:*=null)
+        public function JsonTextureAtlas(texture:Texture, data:*=null)
         {
             super(texture, data);
         }

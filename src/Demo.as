@@ -10,11 +10,14 @@ package
     import starling.events.KeyboardEvent;
     import starling.extensions.animate.AnimateFactory;
     import starling.extensions.animate.Animation;
+    import starling.extensions.animate.AnimationAtlas;
+    import starling.extensions.animate.LoopMode;
     import starling.textures.TextureAtlas;
 
     public class Demo extends Sprite
     {
         private var _assets:AssetManager;
+        private var _atlas:AnimationAtlas;
         private var _animation:Animation;
 
         public function Demo()
@@ -28,7 +31,7 @@ package
             _assets.registerFactory(new AnimateFactory(), 10);
 
             var appDir:File = File.applicationDirectory;
-            _assets.enqueue(appDir.resolvePath("assets/Joker/"));
+            _assets.enqueue(appDir.resolvePath("assets/moledig/"));
             _assets.loadQueue(onAssetsLoaded);
 
             stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
@@ -36,13 +39,16 @@ package
 
         private function onAssetsLoaded():void
         {
-            var animationAtlas:TextureAtlas = _assets.getTextureAtlas("spritemap");
+            var textureAtlas:TextureAtlas = _assets.getTextureAtlas("spritemap");
             var animationData:Object = _assets.getObject("Animation");
 
-            _animation = new Animation(animationData, animationAtlas);
+            _atlas = new AnimationAtlas(animationData, textureAtlas);
+
+            _animation = _atlas.createAnimation();
             _animation.x = 300;
             _animation.y = 600;
-            _animation.scale = 0.5;
+            _animation.frameRate = 20;
+            _animation.loop = LoopMode.SINGLE_FRAME;
             addChild(_animation);
 
             Starling.juggler.add(_animation);

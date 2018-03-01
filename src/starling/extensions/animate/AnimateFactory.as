@@ -21,7 +21,7 @@ package starling.extensions.animate
                     {
                         var textureName:String = helper.getNameFromUrl(json.meta.image);
                         var texture:Texture = assets.getTexture(textureName);
-                        assets.addAsset(name, new AnimateAtlas(texture, json));
+                        assets.addAsset(name, new JsonTextureAtlas(texture, json));
                     });
                 }
 
