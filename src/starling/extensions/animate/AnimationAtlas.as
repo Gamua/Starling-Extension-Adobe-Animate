@@ -8,6 +8,8 @@ package starling.extensions.animate
 
     public class AnimationAtlas
     {
+        public static const ASSET_TYPE:String = "animationAtlas";
+
         private var _atlas:TextureAtlas;
         private var _symbolData:Dictionary;
         private var _symbolPool:Dictionary;
@@ -31,11 +33,28 @@ package starling.extensions.animate
             _imagePool = [];
         }
 
+        public function hasAnimation(name:String):Boolean
+        {
+            return hasSymbol(name);
+        }
+
         public function createAnimation(name:String=null):Animation
         {
             name ||= _defaultSymbolName;
             if (!hasSymbol(name)) throw new ArgumentError("Animation not found: " + name);
             return new Animation(getSymbolData(name), this);
+        }
+
+        public function getAnimationNames(prefix:String="", out:Vector.<String>=null):Vector.<String>
+        {
+            out ||= new Vector.<String>();
+
+            for (var name:String in _symbolData)
+                if (name != Symbol.BITMAP_SYMBOL_NAME && name.indexOf(prefix) == 0)
+                    out[out.length] = name;
+
+            out.sort(Array.CASEINSENSITIVE);
+            return out;
         }
 
         // pooling
@@ -111,7 +130,7 @@ package starling.extensions.animate
             };
         }
 
-        private function preprocessSymbolData(symbolData:Object):Object
+        private static function preprocessSymbolData(symbolData:Object):Object
         {
             var timeLineData:Object = symbolData.TIMELINE;
             var layerDates:Array = timeLineData.LAYERS;

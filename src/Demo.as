@@ -1,22 +1,19 @@
 package
 {
     import flash.filesystem.File;
+    import flash.system.System;
     import flash.ui.Keyboard;
 
-    import starling.assets.AssetManager;
     import starling.core.Starling;
     import starling.display.Sprite;
     import starling.events.Event;
     import starling.events.KeyboardEvent;
-    import starling.extensions.animate.AnimateFactory;
     import starling.extensions.animate.Animation;
-    import starling.extensions.animate.AnimationAtlas;
-    import starling.textures.TextureAtlas;
+    import starling.extensions.animate.AssetManagerEx;
 
     public class Demo extends Sprite
     {
-        private var _assets:AssetManager;
-        private var _atlas:AnimationAtlas;
+        private var _assets:AssetManagerEx;
         private var _animation:Animation;
 
         public function Demo()
@@ -26,11 +23,10 @@ package
 
         public function init():void
         {
-            _assets = new AssetManager();
-            _assets.registerFactory(new AnimateFactory(), 10);
-
             var appDir:File = File.applicationDirectory;
-            _assets.enqueue(appDir.resolvePath("assets/mole/"));
+
+            _assets = new AssetManagerEx();
+            _assets.enqueue(appDir.resolvePath("assets/NinjaGirl/"));
             _assets.loadQueue(onAssetsLoaded);
 
             stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
@@ -38,15 +34,14 @@ package
 
         private function onAssetsLoaded():void
         {
-            var textureAtlas:TextureAtlas = _assets.getTextureAtlas("spritemap");
-            var animationData:Object = _assets.getObject("Animation");
+            // now would be a good time for a clean-up
+            System.pauseForGCIfCollectionImminent(0);
+            System.gc();
 
-            _atlas = new AnimationAtlas(animationData, textureAtlas);
-
-            _animation = _atlas.createAnimation();
+            _animation = _assets.createAnimation("NinjaGirl");
             _animation.x = 300;
             _animation.y = 600;
-            _animation.frameRate = 20;
+            _animation.frameRate = 24;
             addChild(_animation);
 
             Starling.juggler.add(_animation);
