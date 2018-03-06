@@ -1,7 +1,5 @@
 package
 {
-    import flash.filesystem.File;
-    import flash.system.System;
     import flash.ui.Keyboard;
 
     import starling.core.Starling;
@@ -14,42 +12,25 @@ package
 
     public class Demo extends Sprite
     {
-        private var _assets:AssetManagerEx;
         private var _ninja:Animation;
         private var _bunny:Animation;
         private var _walking:Boolean;
 
         public function Demo()
+        { }
+
+        public function start(assets:AssetManagerEx):void
         {
-            addEventListener(Event.ADDED_TO_STAGE, init);
-        }
-
-        public function init():void
-        {
-            var appDir:File = File.applicationDirectory;
-
-            _assets = new AssetManagerEx();
-            _assets.enqueue(appDir.resolvePath("assets/ninja-girl/"));
-            _assets.enqueue(appDir.resolvePath("assets/bunny/"));
-            _assets.enqueue(appDir.resolvePath("assets/background.jpg"));
-            _assets.loadQueue(onAssetsLoaded);
-
             stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
             stage.addEventListener(KeyboardEvent.KEY_UP,   onKeyUp);
-        }
 
-        private function onAssetsLoaded():void
-        {
-            System.pauseForGCIfCollectionImminent(0);
-            System.gc();
-
-            var bg:Image = new Image(_assets.getTexture("background"));
+            var bg:Image = new Image(assets.getTexture("background"));
             bg.alignPivot();
             bg.x = stage.stageWidth / 2;
             bg.y = stage.stageHeight / 2;
             addChild(bg);
 
-            _ninja = _assets.createAnimation("ninja-girl");
+            _ninja = assets.createAnimation("ninja-girl");
             _ninja.x = bg.x;
             _ninja.y = bg.y + bg.height * 0.2;
             _ninja.frameRate = 24;
@@ -62,7 +43,7 @@ package
             _ninja.addFrameAction(_ninja.getNextLabel("attack"), gotoIdleOrWalk);
             _ninja.addFrameAction(_ninja.getNextLabel("walk"), gotoIdleOrWalk);
 
-            _bunny = _assets.createAnimation("bunny");
+            _bunny = assets.createAnimation("bunny");
             _bunny.addEventListener(Event.COMPLETE, switchBunnyDirection);
             _bunny.x = bg.x;
             addChild(_bunny);
@@ -81,7 +62,7 @@ package
 
         private function onKeyDown(e:Event, keyCode:uint):void
         {
-            var currentPhase:String = _ninja.currentLabel;
+            var currentLabel:String = _ninja.currentLabel;
 
             if (keyCode == Keyboard.RIGHT)
             {
@@ -95,9 +76,9 @@ package
                 _ninja.scaleX = -Math.abs(_ninja.scaleX);
                 gotoIdleOrWalk();
             }
-            else if (keyCode == Keyboard.DOWN && currentPhase != "crouch")
+            else if (keyCode == Keyboard.DOWN && currentLabel != "crouch")
                 _ninja.gotoFrame("crouch");
-            else if (keyCode == Keyboard.UP && currentPhase != "attack")
+            else if (keyCode == Keyboard.UP && currentLabel != "attack")
                 _ninja.gotoFrame("attack");
             else if (keyCode == Keyboard.X)
                 Starling.context.dispose();
@@ -136,12 +117,9 @@ package
         }
 
         // this is a simple (dead ugly) test animation used to experiment with features
-        private function onAssetsLoadedSimple():void
+        private function startAlt(assets:AssetManagerEx):void
         {
-            System.pauseForGCIfCollectionImminent(0);
-            System.gc();
-
-            _ninja = _assets.createAnimation("simple-animation");
+            _ninja = assets.createAnimation("simple-animation");
             _ninja.x = 300;
             _ninja.y = 600;
             addChild(_ninja);

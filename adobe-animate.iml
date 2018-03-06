@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="Flex" version="4">
-  <component name="FlexBuildConfigurationManager" active="adobe-animate">
+  <component name="FlexBuildConfigurationManager" active="adobe-animate-mobile">
     <configurations>
-      <configuration name="adobe-animate" target-platform="Mobile" pure-as="true" main-class="StartupMobile" output-file="adobe-animate.swf" output-folder="$MODULE_DIR$/../../temp/out/adobe-animate">
+      <configuration name="adobe-animate-mobile" target-platform="Mobile" pure-as="true" main-class="StartupMobile" output-file="adobe-animate-mobile.swf" output-folder="$MODULE_DIR$/../../temp/out/adobe-animate">
         <dependencies target-player="28.0">
           <entries>
             <entry module-name="starling" build-configuration-name="starling">
@@ -24,6 +24,20 @@
           </files-to-package>
           <AirSigningOptions keystore-path="$MODULE_DIR$/../../library/ios/daniel_dev_certificate.p12" provisioning-profile-path="$MODULE_DIR$/../../library/ios/ios_dev_profile.mobileprovision" />
         </packaging-ios>
+      </configuration>
+      <configuration name="adobe-animate-web" pure-as="true" main-class="StartupWeb" output-file="adobe-animate.swf" output-folder="$MODULE_DIR$/../../temp/out/adobe-animate">
+        <dependencies target-player="28.0">
+          <entries>
+            <entry module-name="starling" build-configuration-name="starling">
+              <dependency linkage="Merged" />
+            </entry>
+          </entries>
+          <sdk name="air-28" />
+        </dependencies>
+        <compiler-options />
+        <packaging-air-desktop />
+        <packaging-android />
+        <packaging-ios />
       </configuration>
     </configurations>
     <compiler-options />
