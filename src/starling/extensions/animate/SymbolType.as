@@ -2,7 +2,7 @@ package starling.extensions.animate
 {
     import starling.errors.AbstractClassError;
 
-    public class SymbolType
+    internal class SymbolType
     {
         /** @private */
         public function SymbolType() { throw new AbstractClassError(); }

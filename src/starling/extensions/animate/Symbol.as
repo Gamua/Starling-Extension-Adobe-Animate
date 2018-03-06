@@ -1,5 +1,6 @@
 package starling.extensions.animate
 {
+    import flash.display.FrameLabel;
     import flash.geom.Matrix;
 
     import starling.display.DisplayObjectContainer;
@@ -8,7 +9,7 @@ package starling.extensions.animate
     import starling.textures.Texture;
     import starling.utils.MathUtil;
 
-    public class Symbol extends DisplayObjectContainer
+    internal class Symbol extends DisplayObjectContainer
     {
         public static const BITMAP_SYMBOL_NAME:String = "___atlas_sprite___";
 
@@ -16,13 +17,14 @@ package starling.extensions.animate
         private var _atlas:AnimationAtlas;
         private var _symbolName:String;
         private var _type:String;
-        private var _loop:String;
+        private var _loopMode:String;
         private var _currentFrame:int;
         private var _composedFrame:int;
         private var _layers:Sprite;
         private var _bitmap:Image;
         private var _numFrames:int;
         private var _numLayers:int;
+        private var _frameLabels:Array;
 
         private static const sMatrix:Matrix = new Matrix();
 
@@ -33,9 +35,10 @@ package starling.extensions.animate
             _composedFrame = -1;
             _numLayers = data.TIMELINE.LAYERS.length;
             _numFrames = getNumFrames();
+            _frameLabels = getFrameLabels();
             _symbolName = data.SYMBOL_name;
             _type = SymbolType.GRAPHIC;
-            _loop = LoopMode.LOOP;
+            _loopMode = LoopMode.LOOP;
 
             createLayers();
         }
@@ -54,14 +57,14 @@ package starling.extensions.animate
          *  forward, though (recursively). */
         public function nextFrame():void
         {
-            if (_loop != LoopMode.SINGLE_FRAME)
+            if (_loopMode != LoopMode.SINGLE_FRAME)
                 currentFrame += 1;
 
             nextFrame_MovieClips();
         }
 
         /** Moves all movie clips ahead one frame, recursively. */
-        protected function nextFrame_MovieClips():void
+        public function nextFrame_MovieClips():void
         {
             if (_type == SymbolType.MOVIE_CLIP)
                 currentFrame += 1;
@@ -76,7 +79,7 @@ package starling.extensions.animate
             }
         }
 
-        protected function update():void
+        public function update():void
         {
             for (var i:int = 0; i<_numLayers; ++i)
                 updateLayer(i);
@@ -126,9 +129,9 @@ package starling.extensions.animate
                     var firstFrame:int = elementData.firstFrame;
                     var frameAge:int = _currentFrame - frameData.index;
 
-                    if (newSymbol.loop == LoopMode.SINGLE_FRAME)
+                    if (newSymbol.loopMode == LoopMode.SINGLE_FRAME)
                         newSymbol.currentFrame = firstFrame;
-                    else if (newSymbol.loop == LoopMode.LOOP)
+                    else if (newSymbol.loopMode == LoopMode.LOOP)
                         newSymbol.currentFrame = (firstFrame + frameAge) % newSymbol._numFrames;
                     else
                         newSymbol.currentFrame = firstFrame + frameAge;
@@ -194,11 +197,6 @@ package starling.extensions.animate
             transformationMatrix = sMatrix;
         }
 
-        private function setPivot(data:Object):void
-        {
-            pivotX = data.x; pivotY = data.y;
-        }
-
         private function setColor(data:Object):void
         {
             if (data)
@@ -213,8 +211,8 @@ package starling.extensions.animate
 
         private function setLoop(data:String):void
         {
-            if (data) _loop = data;
-            else _loop = LoopMode.LOOP;
+            if (data) _loopMode = data;
+            else _loopMode = LoopMode.LOOP;
         }
 
         private function setType(data:String):void
@@ -225,9 +223,8 @@ package starling.extensions.animate
         private function getNumFrames():int
         {
             var numFrames:int = 0;
-            var numLayers:int = this.numLayers;
 
-            for (var i:int=0; i<numLayers; ++i)
+            for (var i:int=0; i<_numLayers; ++i)
             {
                 var frameDates:Array = getLayerData(i).Frames as Array;
                 var numFrameDates:int = frameDates ? frameDates.length : 0;
@@ -243,9 +240,71 @@ package starling.extensions.animate
             return numFrames || 1;
         }
 
-        protected function getLayer(layerIndex:int):Sprite
+        private function getFrameLabels():Array
+        {
+            var labels:Array = [];
+
+            for (var i:int=0; i<_numLayers; ++i)
+            {
+                var frameDates:Array = getLayerData(i).Frames as Array;
+                var numFrameDates:int = frameDates ? frameDates.length : 0;
+
+                for (var j:int=0; j<numFrameDates; ++j)
+                {
+                    var frameData:Object = frameDates[j];
+                    if ("name" in frameData)
+                        labels[labels.length] = new FrameLabel(frameData.name, frameData.index);
+                }
+            }
+
+            labels.sortOn('frame', Array.NUMERIC);
+            return labels;
+        }
+
+        private function getLayer(layerIndex:int):Sprite
         {
             return _layers.getChildAt(layerIndex) as Sprite;
+        }
+
+        public function getNextLabel(afterLabel:String=null):String
+        {
+            var numLabels:int = _frameLabels.length;
+            var startFrame:int = getFrame(afterLabel || currentLabel);
+
+            for (var i:int=0; i<numLabels; ++i)
+            {
+                var label:FrameLabel = _frameLabels[i];
+                if (label.frame > startFrame) return label.name;
+            }
+
+            return _frameLabels ? _frameLabels[0].name : null; // wrap around
+        }
+
+        public function get currentLabel():String
+        {
+            var numLabels:int = _frameLabels.length;
+            var highestLabel:FrameLabel = numLabels ? _frameLabels[0] : null;
+
+            for (var i:int=1; i<numLabels; ++i)
+            {
+                var label:FrameLabel = _frameLabels[i];
+
+                if (label.frame <= _currentFrame) highestLabel = label;
+                else break;
+            }
+
+            return highestLabel ? highestLabel.name : null;
+        }
+
+        public function getFrame(label:String):int
+        {
+            var numLabels:int = _frameLabels.length;
+            for (var i:int=0; i<numLabels; ++i)
+            {
+                var frameLabel:FrameLabel = _frameLabels[i];
+                if (frameLabel.name == label) return frameLabel.frame;
+            }
+            return -1;
         }
 
         public function get currentFrame():int { return _currentFrame; }
@@ -253,7 +312,7 @@ package starling.extensions.animate
         {
             while (value < 0) value += _numFrames;
 
-            if (_loop == LoopMode.PLAY_ONCE)
+            if (_loopMode == LoopMode.PLAY_ONCE)
                 _currentFrame = MathUtil.clamp(value, 0, _numFrames - 1);
             else
                 _currentFrame = Math.abs(value % _numFrames);
@@ -269,15 +328,14 @@ package starling.extensions.animate
             else throw new ArgumentError("Invalid symbol type: " + value);
         }
 
-        public function get loop():String { return _loop; }
-        public function set loop(value:String):void
+        public function get loopMode():String { return _loopMode; }
+        public function set loopMode(value:String):void
         {
-            if (LoopMode.isValid(value)) _loop = value;
+            if (LoopMode.isValid(value)) _loopMode = value;
             else throw new ArgumentError("Invalid loop mode: " + value);
         }
 
         public function get symbolName():String { return _symbolName; }
-        public function get instanceName():String { return name; }
         public function get numLayers():int { return _numLayers; }
         public function get numFrames():int { return _numFrames; }
 

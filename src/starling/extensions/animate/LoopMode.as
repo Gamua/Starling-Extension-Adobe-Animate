@@ -2,7 +2,7 @@ package starling.extensions.animate
 {
     import starling.errors.AbstractClassError;
 
-    public class LoopMode
+    internal class LoopMode
     {
         /** @private */
         public function LoopMode() { throw new AbstractClassError(); }

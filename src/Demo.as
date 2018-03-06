@@ -5,6 +5,7 @@ package
     import flash.ui.Keyboard;
 
     import starling.core.Starling;
+    import starling.display.Image;
     import starling.display.Sprite;
     import starling.events.Event;
     import starling.events.KeyboardEvent;
@@ -14,7 +15,9 @@ package
     public class Demo extends Sprite
     {
         private var _assets:AssetManagerEx;
-        private var _animation:Animation;
+        private var _ninja:Animation;
+        private var _bunny:Animation;
+        private var _walking:Boolean;
 
         public function Demo()
         {
@@ -26,33 +29,124 @@ package
             var appDir:File = File.applicationDirectory;
 
             _assets = new AssetManagerEx();
-            _assets.enqueue(appDir.resolvePath("assets/NinjaGirl/"));
+            _assets.enqueue(appDir.resolvePath("assets/ninja-girl/"));
+            _assets.enqueue(appDir.resolvePath("assets/bunny/"));
+            _assets.enqueue(appDir.resolvePath("assets/background.jpg"));
             _assets.loadQueue(onAssetsLoaded);
 
             stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
+            stage.addEventListener(KeyboardEvent.KEY_UP,   onKeyUp);
         }
 
         private function onAssetsLoaded():void
         {
-            // now would be a good time for a clean-up
             System.pauseForGCIfCollectionImminent(0);
             System.gc();
 
-            _animation = _assets.createAnimation("NinjaGirl");
-            _animation.x = 300;
-            _animation.y = 600;
-            _animation.frameRate = 24;
-            addChild(_animation);
+            var bg:Image = new Image(_assets.getTexture("background"));
+            bg.alignPivot();
+            bg.x = stage.stageWidth / 2;
+            bg.y = stage.stageHeight / 2;
+            addChild(bg);
 
-            Starling.juggler.add(_animation);
+            _ninja = _assets.createAnimation("ninja-girl");
+            _ninja.x = bg.x;
+            _ninja.y = bg.y + bg.height * 0.2;
+            _ninja.frameRate = 24;
+            _ninja.scale = 0.75;
+            addChild(_ninja);
+            Starling.juggler.add(_ninja);
+
+            _ninja.addFrameAction(_ninja.getNextLabel("idle"), gotoIdleOrWalk);
+            _ninja.addFrameAction(_ninja.getNextLabel("crouch"), gotoIdleOrWalk);
+            _ninja.addFrameAction(_ninja.getNextLabel("attack"), gotoIdleOrWalk);
+            _ninja.addFrameAction(_ninja.getNextLabel("walk"), gotoIdleOrWalk);
+
+            _bunny = _assets.createAnimation("bunny");
+            _bunny.addEventListener(Event.COMPLETE, switchBunnyDirection);
+            _bunny.x = bg.x;
+            addChild(_bunny);
+            Starling.juggler.add(_bunny);
+
+            switchBunnyDirection(); // init bunny position
+        }
+
+        private function gotoIdleOrWalk():void
+        {
+            var targetLabel:String = _walking ? "walk" : "idle";
+
+            if (_ninja.currentLabel != targetLabel)
+                _ninja.gotoFrame(targetLabel);
         }
 
         private function onKeyDown(e:Event, keyCode:uint):void
         {
-            if (keyCode == Keyboard.RIGHT && _animation)
-                _animation.currentFrame += 1;
-            else if (keyCode == Keyboard.LEFT && _animation)
-                _animation.currentFrame -= 1;
+            var currentPhase:String = _ninja.currentLabel;
+
+            if (keyCode == Keyboard.RIGHT)
+            {
+                _walking = true;
+                _ninja.scaleX = Math.abs(_ninja.scaleX);
+                gotoIdleOrWalk();
+            }
+            else if (keyCode == Keyboard.LEFT)
+            {
+                _walking = true;
+                _ninja.scaleX = -Math.abs(_ninja.scaleX);
+                gotoIdleOrWalk();
+            }
+            else if (keyCode == Keyboard.DOWN && currentPhase != "crouch")
+                _ninja.gotoFrame("crouch");
+            else if (keyCode == Keyboard.UP && currentPhase != "attack")
+                _ninja.gotoFrame("attack");
+            else if (keyCode == Keyboard.X)
+                Starling.context.dispose();
+            else if (keyCode == Keyboard.P)
+                _ninja.isPlaying ? _ninja.pause() : _ninja.play();
+            else if (keyCode == Keyboard.S)
+                _ninja.stop();
+        }
+
+        private function onKeyUp(e:Event, keyCode:uint):void
+        {
+            if (keyCode == Keyboard.RIGHT || keyCode == Keyboard.LEFT)
+            {
+                _walking = false;
+                gotoIdleOrWalk();
+            }
+        }
+
+        private function switchBunnyDirection():void
+        {
+            var centerY:Number = stage.stageHeight / 2;
+
+            if (_bunny.scaleX > 0)
+            {
+                _bunny.y = centerY + 22;
+                _bunny.scaleY =  0.35;
+                _bunny.scaleX = -0.35;
+                addChildAt(_bunny, 1); // behind ninja
+            }
+            else
+            {
+                _bunny.y = centerY + 100;
+                _bunny.scale = 0.5;
+                addChild(_bunny); // in front of ninja
+            }
+        }
+
+        // this is a simple (dead ugly) test animation used to experiment with features
+        private function onAssetsLoadedSimple():void
+        {
+            System.pauseForGCIfCollectionImminent(0);
+            System.gc();
+
+            _ninja = _assets.createAnimation("simple-animation");
+            _ninja.x = 300;
+            _ninja.y = 600;
+            addChild(_ninja);
+
+            Starling.juggler.add(_ninja);
         }
     }
 }
