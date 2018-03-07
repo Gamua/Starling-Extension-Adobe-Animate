@@ -18,6 +18,8 @@ package starling.extensions.animate
         private var _target:DisplayObject;
         private var _onFrameChanged:Function;
 
+        private static const E:Number = 0.00001;
+
         /** Creates a new movie behavior for the given target. Whenever the frame changes,
          *  the callback will be executed. */
         public function MovieBehavior(target:DisplayObject, onFrameChanged:Function,
@@ -95,6 +97,7 @@ package starling.extensions.animate
             // Thus, we have to start over with the remaining time whenever that happens.
 
             var frame:MovieFrame = _frames[_currentFrame];
+            var totalTime:Number = this.totalTime;
 
             if (_wasStopped)
             {
@@ -111,7 +114,7 @@ package starling.extensions.animate
                 }
             }
 
-            if (_currentTime == totalTime)
+            if (_currentTime >= totalTime)
             {
                 if (_loop)
                 {
@@ -144,9 +147,10 @@ package starling.extensions.animate
 
                 if (_currentFrame == finalFrame)
                 {
+                    _currentTime = totalTime; // prevent floating point problem
+
                     if (hasEventListener(Event.COMPLETE))
                     {
-                        _currentTime = totalTime; // to avoid floating point errors
                         dispatchCompleteEvent = true;
                     }
                     else if (_loop)
@@ -184,14 +188,14 @@ package starling.extensions.animate
                 restTimeInFrame = _frameDuration;
 
                 // prevent a mean floating point problem (issue #851)
-                if (passedTime + 0.0001 > restTimeInFrame && passedTime - 0.0001 < restTimeInFrame)
+                if (passedTime + E > restTimeInFrame && passedTime - E < restTimeInFrame)
                     passedTime = restTimeInFrame;
             }
 
-            _currentTime += passedTime;
-
             if (previousFrameID != _currentFrame)
                 _onFrameChanged(_currentFrame);
+
+            _currentTime += passedTime;
         }
 
         // properties
@@ -227,7 +231,11 @@ package starling.extensions.animate
         public function set frameRate(value:Number):void
         {
             if (value <= 0) throw new ArgumentError("Invalid frame rate");
-            _frameDuration = 1.0 / value;
+
+            var newFrameDuration:Number = 1.0 / value;
+            var acceleration:Number = newFrameDuration / _frameDuration;
+            _currentTime *= acceleration;
+            _frameDuration = newFrameDuration;
         }
 
         /** Indicates if the clip should loop. @default true */

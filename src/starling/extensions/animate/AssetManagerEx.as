@@ -65,7 +65,7 @@ package starling.extensions.animate
             {
                 var elements:Array = url.split(separator);
                 var folderName:String = elements[elements.length - 2];
-                var suffix:String = defaultName == "Animation" ? AnimationAtlasFactory.ANIM_SUFFIX : "";
+                var suffix:String = defaultName == "Animation" ? AnimationAtlasFactory.ANIMATION_SUFFIX : "";
                 return super.getNameFromUrl(folderName + suffix);
             }
 
@@ -88,7 +88,8 @@ import starling.utils.Pool;
 
 class AnimationAtlasFactory extends JsonFactory
 {
-    public static const ANIM_SUFFIX:String = "_anim";
+    public static const ANIMATION_SUFFIX:String = "_animation";
+    public static const SPRITEMAP_SUFFIX:String = "_spritemap";
 
     override public function create(reference:AssetReference, helper:AssetFactoryHelper,
                                     onComplete:Function, onError:Function):void
@@ -101,14 +102,11 @@ class AnimationAtlasFactory extends JsonFactory
             {
                 helper.addPostProcessor(function(assets:AssetManager):void
                 {
+                    if (name.indexOf(SPRITEMAP_SUFFIX) == name.length - SPRITEMAP_SUFFIX.length)
+                        name = name.substr(0, name.length - SPRITEMAP_SUFFIX.length);
+
                     var textureName:String = helper.getNameFromUrl(name);
                     var texture:Texture = assets.getTexture(textureName);
-
-                    if (texture == null)
-                    {
-                        textureName = helper.getNameFromUrl(json.meta.image);
-                        texture = assets.getTexture(textureName);
-                    }
 
                     assets.addAsset(name, new JsonTextureAtlas(texture, json));
                 }, 100);
@@ -117,7 +115,7 @@ class AnimationAtlasFactory extends JsonFactory
             {
                 helper.addPostProcessor(function(assets:AssetManager):void
                 {
-                    var suffixIndex:int = name.indexOf(ANIM_SUFFIX);
+                    var suffixIndex:int = name.indexOf(ANIMATION_SUFFIX);
                     var baseName:String = name.substr(0,
                         suffixIndex >= 0 ? suffixIndex : int.MAX_VALUE);
 

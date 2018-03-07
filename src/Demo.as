@@ -24,15 +24,15 @@ package
             stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
             stage.addEventListener(KeyboardEvent.KEY_UP,   onKeyUp);
 
-            var bg:Image = new Image(assets.getTexture("background"));
-            bg.alignPivot();
-            bg.x = stage.stageWidth / 2;
-            bg.y = stage.stageHeight / 2;
-            addChild(bg);
+            var background:Image = new Image(assets.getTexture("background"));
+            background.alignPivot();
+            background.x = stage.stageWidth / 2;
+            background.y = stage.stageHeight / 2;
+            addChild(background);
 
             _ninja = assets.createAnimation("ninja-girl");
-            _ninja.x = bg.x;
-            _ninja.y = bg.y + bg.height * 0.2;
+            _ninja.x = background.x;
+            _ninja.y = background.y + background.height * 0.2;
             _ninja.frameRate = 24;
             _ninja.scale = 0.75;
             addChild(_ninja);
@@ -45,7 +45,7 @@ package
 
             _bunny = assets.createAnimation("bunny");
             _bunny.addEventListener(Event.COMPLETE, switchBunnyDirection);
-            _bunny.x = bg.x;
+            _bunny.x = background.x;
             addChild(_bunny);
             Starling.juggler.add(_bunny);
 
@@ -117,11 +117,12 @@ package
         }
 
         // this is a simple (dead ugly) test animation used to experiment with features
-        private function startAlt(assets:AssetManagerEx):void
+        public function startAlt(assets:AssetManagerEx):void
         {
             _ninja = assets.createAnimation("simple-animation");
             _ninja.x = 300;
             _ninja.y = 600;
+            _ninja.frameRate = 24;
             addChild(_ninja);
 
             Starling.juggler.add(_ninja);
