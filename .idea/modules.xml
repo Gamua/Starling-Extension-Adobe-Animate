@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/adobe-animate.iml" filepath="$PROJECT_DIR$/adobe-animate.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../starling/starling/starling.iml" filepath="$PROJECT_DIR$/../../starling/starling/starling.iml" />
+    </modules>
+  </component>
+</project>
