@@ -8,7 +8,7 @@ package
     import starling.events.Event;
     import starling.events.KeyboardEvent;
     import starling.extensions.animate.Animation;
-    import starling.extensions.animate.AssetManagerEx;
+    import starling.extensions.animate.AnimAssetManager;
 
     public class Demo extends Sprite
     {
@@ -19,7 +19,7 @@ package
         public function Demo()
         { }
 
-        public function start(assets:AssetManagerEx):void
+        public function start(assets:AnimAssetManager):void
         {
             stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
             stage.addEventListener(KeyboardEvent.KEY_UP,   onKeyUp);
@@ -117,7 +117,7 @@ package
         }
 
         // this is a simple (dead ugly) test animation used to experiment with features
-        public function startAlt(assets:AssetManagerEx):void
+        public function startAlt(assets:AnimAssetManager):void
         {
             _ninja = assets.createAnimation("simple-animation");
             _ninja.x = 300;

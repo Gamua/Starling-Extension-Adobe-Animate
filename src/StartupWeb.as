@@ -4,7 +4,7 @@ package
 
     import starling.core.Starling;
     import starling.events.Event;
-    import starling.extensions.animate.AssetManagerEx;
+    import starling.extensions.animate.AnimAssetManager;
 
     [SWF(width="500", height="500", frameRate="60", backgroundColor="#eeeeee")]
     public class StartupWeb extends Sprite
@@ -22,7 +22,7 @@ package
         private function loadAssets():void
         {
             var demo:Demo = _starling.root as Demo;
-            var assets:AssetManagerEx = new AssetManagerEx();
+            var assets:AnimAssetManager = new AnimAssetManager();
             assets.enqueue(EmbeddedAssets);
             assets.loadQueue(demo.start);
         }

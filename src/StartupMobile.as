@@ -6,7 +6,7 @@ package
 
     import starling.core.Starling;
     import starling.events.Event;
-    import starling.extensions.animate.AssetManagerEx;
+    import starling.extensions.animate.AnimAssetManager;
 
     [SWF(width="320", height="480", frameRate="60", backgroundColor="#ffffff")]
     public class StartupMobile extends Sprite
@@ -28,7 +28,7 @@ package
         {
             var demo:Demo = _starling.root as Demo;
             var appDir:File = File.applicationDirectory;
-            var assets:AssetManagerEx = new AssetManagerEx();
+            var assets:AnimAssetManager = new AnimAssetManager();
             assets.enqueue(appDir.resolvePath("assets/ninja-girl/"));
             assets.enqueue(appDir.resolvePath("assets/bunny/"));
             assets.enqueue(appDir.resolvePath("assets/background.jpg"));

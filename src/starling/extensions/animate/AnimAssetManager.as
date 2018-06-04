@@ -2,12 +2,12 @@ package starling.extensions.animate
 {
     import starling.assets.AssetManager;
 
-    public class AssetManagerEx extends AssetManager
+    public class AnimAssetManager extends AssetManager
     {
         // helper objects
         private static var sNames:Vector.<String> = new <String>[];
 
-        public function AssetManagerEx()
+        public function AnimAssetManager()
         {
             registerFactory(new AnimationAtlasFactory(), 10);
         }
@@ -58,18 +58,12 @@ package starling.extensions.animate
         override protected function getNameFromUrl(url:String):String
         {
             var defaultName:String = super.getNameFromUrl(url);
-            var separator:String = "/";
+            var defaultExt:String = super.getExtensionFromUrl(url);
 
-            if (defaultName == "Animation" || defaultName == "spritemap" &&
-                url.indexOf(separator) != -1)
-            {
-                var elements:Array = url.split(separator);
-                var folderName:String = elements[elements.length - 2];
-                var suffix:String = defaultName == "Animation" ? AnimationAtlasFactory.ANIMATION_SUFFIX : "";
-                return super.getNameFromUrl(folderName + suffix);
-            }
-
-            return defaultName;
+            if (defaultName == "spritemap" && (defaultExt == "png" || defaultExt == "atf"))
+                return AnimationAtlasFactory.getName(url, defaultName, false);
+            else
+                return defaultName;
         }
     }
 }
@@ -91,41 +85,60 @@ class AnimationAtlasFactory extends JsonFactory
     public static const ANIMATION_SUFFIX:String = "_animation";
     public static const SPRITEMAP_SUFFIX:String = "_spritemap";
 
-    override public function create(reference:AssetReference, helper:AssetFactoryHelper,
+    override public function create(asset:AssetReference, helper:AssetFactoryHelper,
                                     onComplete:Function, onError:Function):void
     {
-        super.create(reference, helper, onObjectComplete, onError);
+        super.create(asset, helper, onObjectComplete, onError);
 
         function onObjectComplete(name:String, json:Object):void
         {
+            var baseName:String = getName(asset.url, name, false);
+            var fullName:String = getName(asset.url, name, true);
+
             if (json.ATLAS && json.meta)
             {
                 helper.addPostProcessor(function(assets:AssetManager):void
                 {
-                    if (name.indexOf(SPRITEMAP_SUFFIX) == name.length - SPRITEMAP_SUFFIX.length)
-                        name = name.substr(0, name.length - SPRITEMAP_SUFFIX.length);
-
-                    var textureName:String = helper.getNameFromUrl(name);
-                    var texture:Texture = assets.getTexture(textureName);
-
-                    assets.addAsset(name, new JsonTextureAtlas(texture, json));
+                    var texture:Texture = assets.getTexture(baseName);
+                    assets.addAsset(baseName, new JsonTextureAtlas(texture, json));
                 }, 100);
             }
             else if (json.ANIMATION && json.SYMBOL_DICTIONARY)
             {
                 helper.addPostProcessor(function(assets:AssetManager):void
                 {
-                    var suffixIndex:int = name.indexOf(ANIMATION_SUFFIX);
-                    var baseName:String = name.substr(0,
-                        suffixIndex >= 0 ? suffixIndex : int.MAX_VALUE);
-
                     assets.addAsset(baseName, new AnimationAtlas(json,
                         assets.getTextureAtlas(baseName)), AnimationAtlas.ASSET_TYPE);
                 });
             }
 
-            onComplete(name, json);
+            onComplete(fullName, json);
         }
+    }
+
+    internal static function getName(url:String, stdName:String, addSuffix:Boolean):String
+    {
+        var separator:String = "/";
+
+        // embedded classes are stripped of the suffix here
+        if (url == null && !addSuffix)
+        {
+            stdName = stdName.replace(AnimationAtlasFactory.ANIMATION_SUFFIX, "");
+            stdName = stdName.replace(AnimationAtlasFactory.SPRITEMAP_SUFFIX, "");
+        }
+
+        if ((stdName == "Animation" || stdName == "spritemap") && url.indexOf(separator) != -1)
+        {
+            var elements:Array = url.split(separator);
+            var folderName:String = elements[elements.length - 2];
+            var suffix:String = stdName == "Animation" ?
+                AnimationAtlasFactory.ANIMATION_SUFFIX : AnimationAtlasFactory.SPRITEMAP_SUFFIX;
+
+            if (addSuffix) return folderName + suffix;
+            else return folderName;
+        }
+
+        return stdName;
     }
 }
 
