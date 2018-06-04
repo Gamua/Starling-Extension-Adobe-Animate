@@ -2,6 +2,7 @@ package starling.extensions.animate
 {
     import starling.assets.AssetManager;
 
+    /** An AssetManager subclass that adds support for the "AnimationAtlas" asset type. */
     public class AnimAssetManager extends AssetManager
     {
         // helper objects

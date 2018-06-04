@@ -6,7 +6,8 @@ package starling.extensions.animate
     import starling.events.EventDispatcher;
     import starling.utils.MathUtil;
 
-    public class MovieBehavior extends EventDispatcher implements IAnimatable
+    /** Encapsulated the logic for time and frame logic for MovieClips and similar classes. */
+    internal class MovieBehavior extends EventDispatcher implements IAnimatable
     {
         private var _frames:Vector.<MovieFrame>;
         private var _frameDuration:Number;

@@ -6,6 +6,12 @@ package starling.extensions.animate
     import starling.textures.Texture;
     import starling.textures.TextureAtlas;
 
+    /** An AnimationAtlas stores the data of all the animations found in one set of files
+     *  created by Adobe Animate's "export texture atlas" feature.
+     *
+     *  <p>Just like a TextureAtlas references a list of textures, an AnimationAtlas references
+     *  a list of animations. </p>
+     */
     public class AnimationAtlas
     {
         public static const ASSET_TYPE:String = "animationAtlas";
@@ -33,11 +39,14 @@ package starling.extensions.animate
             _imagePool = [];
         }
 
+        /** Indicates if the atlas contains an animation with the given name. */
         public function hasAnimation(name:String):Boolean
         {
             return hasSymbol(name);
         }
 
+        /** Creates a new instance of the animation with the given name. If you don't provide
+         *  a name, the default symbol name will be used (i.e. the symbol's main timeline). */
         public function createAnimation(name:String=null):Animation
         {
             name ||= _defaultSymbolName;
@@ -45,6 +54,7 @@ package starling.extensions.animate
             return new Animation(getSymbolData(name), this);
         }
 
+        /** Returns a list of all the animation names contained in this atlas. */
         public function getAnimationNames(prefix:String="", out:Vector.<String>=null):Vector.<String>
         {
             out ||= new Vector.<String>();
