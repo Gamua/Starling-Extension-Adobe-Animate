@@ -13,9 +13,9 @@ package starling.extensions.animate
         private var _behavior:MovieBehavior;
         private var _cumulatedTime:Number = 0.0;
 
-        public function Animation(data:Object, atlas:AnimationAtlas)
+        public function Animation(symbolName:String, atlas:AnimationAtlas)
         {
-            _symbol = new Symbol(data, atlas);
+            _symbol = new Symbol(atlas.getSymbolData(symbolName), atlas);
             _symbol.update();
             addChild(_symbol);
 

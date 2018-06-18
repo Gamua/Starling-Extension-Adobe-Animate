@@ -51,7 +51,7 @@ package starling.extensions.animate
         {
             name ||= _defaultSymbolName;
             if (!hasSymbol(name)) throw new ArgumentError("Animation not found: " + name);
-            return new Animation(getSymbolData(name), this);
+            return new Animation(name, this);
         }
 
         /** Returns a list of all the animation names contained in this atlas. */
@@ -109,6 +109,11 @@ package starling.extensions.animate
             var pool:Array = getSymbolPool(symbol.symbolName);
             pool[pool.length] = symbol;
             symbol.currentFrame = 0;
+        }
+
+        internal function getSymbolData(name:String):Object
+        {
+            return _symbolData[name];
         }
 
         // helpers
@@ -197,11 +202,6 @@ package starling.extensions.animate
             }
 
             return symbolData;
-        }
-
-        private function getSymbolData(name:String):Object
-        {
-            return _symbolData[name];
         }
 
         private function getSymbolPool(name:String):Array
