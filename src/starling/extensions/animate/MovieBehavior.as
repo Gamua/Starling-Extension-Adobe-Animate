@@ -136,13 +136,14 @@ package starling.extensions.animate
 
             var finalFrame:int = _frames.length - 1;
             var frameStartTime:Number = _currentFrame * _frameDuration;
-            var restTimeInFrame:Number = _frameDuration - _currentTime + frameStartTime;
             var dispatchCompleteEvent:Boolean = false;
-            var previousFrameID:int = _currentFrame;
+            var previousFrame:int = _currentFrame;
+            var restTimeInFrame:Number;
             var numActions:int;
 
-            while (passedTime >= restTimeInFrame)
+            while (_currentTime + passedTime >= frameStartTime + _frameDuration)
             {
+                restTimeInFrame = _frameDuration - _currentTime + frameStartTime;
                 passedTime -= restTimeInFrame;
                 _currentTime = frameStartTime + _frameDuration;
 
@@ -185,15 +186,9 @@ package starling.extensions.animate
                     advanceTime(passedTime);
                     return;
                 }
-
-                restTimeInFrame = _frameDuration;
-
-                // prevent a mean floating point problem (issue #851)
-                if (passedTime + E > restTimeInFrame && passedTime - E < restTimeInFrame)
-                    passedTime = restTimeInFrame;
             }
 
-            if (previousFrameID != _currentFrame)
+            if (previousFrame != _currentFrame)
                 _onFrameChanged(_currentFrame);
 
             _currentTime += passedTime;
