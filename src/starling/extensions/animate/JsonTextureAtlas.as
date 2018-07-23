@@ -7,6 +7,8 @@ package starling.extensions.animate
     import starling.textures.TextureAtlas;
     import starling.utils.Pool;
 
+    /** A TextureAtlas that supports the JSON file format used by Adobe Animate's 'Texture Atlas'
+     *  export. */
     public class JsonTextureAtlas extends TextureAtlas
     {
         public function JsonTextureAtlas(texture:Texture, data:*=null)
