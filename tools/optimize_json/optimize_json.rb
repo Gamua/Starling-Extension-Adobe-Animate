@@ -51,7 +51,7 @@ def process(object, path)
       (1...clone.count).each do |frame_index|
         prev_frame = compressed_frames.last
         next_frame = clone[frame_index]
-        if (prev_frame['elements'].count == 0 and next_frame['elements'].count == 0)
+        if (prev_frame['elements'].count == 0 and next_frame['elements'].count == 0 and !next_frame.has_key?('name'))
           prev_frame['duration'] += next_frame['duration']
         else
           compressed_frames << next_frame
