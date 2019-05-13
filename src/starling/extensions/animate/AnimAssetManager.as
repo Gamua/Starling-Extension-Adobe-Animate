@@ -100,7 +100,7 @@ class AnimationAtlasFactory extends JsonFactory
                     assets.addAsset(baseName, new JsonTextureAtlas(texture, json));
                 }, 100);
             }
-            else if (json.ANIMATION && json.SYMBOL_DICTIONARY)
+            else if ((json.ANIMATION && json.SYMBOL_DICTIONARY) || (json.AN && json.SD))
             {
                 helper.addPostProcessor(function(assets:AssetManager):void
                 {

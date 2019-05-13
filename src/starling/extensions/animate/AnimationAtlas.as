@@ -32,6 +32,7 @@ package starling.extensions.animate
 
         public function AnimationAtlas(data:Object, atlas:TextureAtlas)
         {
+            data = normalizeJsonKeys(data);
             parseData(data);
 
             _atlas = atlas;
@@ -130,25 +131,25 @@ package starling.extensions.animate
             _symbolData = new Dictionary();
 
             // the actual symbol dictionary
-            for each (var symbolData:Object in data.SYMBOL_DICTIONARY.Symbols)
-                _symbolData[symbolData.SYMBOL_name] = preprocessSymbolData(symbolData);
+            for each (var symbolData:Object in data.symbolDictionary.symbols)
+                _symbolData[symbolData.symbolName] = preprocessSymbolData(symbolData);
 
             // the main animation
-            var defaultSymbolData:Object = preprocessSymbolData(data.ANIMATION);
-            _defaultSymbolName = defaultSymbolData.SYMBOL_name;
+            var defaultSymbolData:Object = preprocessSymbolData(data.animation);
+            _defaultSymbolName = defaultSymbolData.symbolName;
             _symbolData[_defaultSymbolName] = defaultSymbolData;
 
             // a purely internal symbol for bitmaps - simplifies their handling
             _symbolData[Symbol.BITMAP_SYMBOL_NAME] = {
-                SYMBOL_name: Symbol.BITMAP_SYMBOL_NAME,
-                TIMELINE: { LAYERS: [] }
+                symbolName: Symbol.BITMAP_SYMBOL_NAME,
+                timeline: { layers: [] }
             };
         }
 
         private static function preprocessSymbolData(symbolData:Object):Object
         {
-            var timeLineData:Object = symbolData.TIMELINE;
-            var layerDates:Array = timeLineData.LAYERS;
+            var timeLineData:Object = symbolData.timeline;
+            var layerDates:Array = timeLineData.layers;
 
             // In Animate CC, layers are sorted front to back.
             // In Starling, it's the other way round - so we simply reverse the layer data.
@@ -167,7 +168,7 @@ package starling.extensions.animate
             for (var l:int=0; l<numLayers; ++l)
             {
                 var layerData:Object = layerDates[l];
-                var frames:Array = layerData.Frames as Array;
+                var frames:Array = layerData.frames as Array;
                 var numFrames:int = frames.length;
 
                 for (var f:int=0; f<numFrames; ++f)
@@ -179,24 +180,25 @@ package starling.extensions.animate
                     {
                         var element:Object = elements[e];
 
-                        if ("ATLAS_SPRITE_instance" in element)
+                        if ("atlasSpriteInstance" in element)
                         {
                             element = elements[e] = {
-                                SYMBOL_Instance: {
-                                    SYMBOL_name: Symbol.BITMAP_SYMBOL_NAME,
-                                    Instance_Name: "InstName",
-                                    bitmap: element.ATLAS_SPRITE_instance,
+                                symbolInstance: {
+                                    symbolName: Symbol.BITMAP_SYMBOL_NAME,
+                                    instanceName: "InstName",
+                                    bitmap: element.atlasSpriteInstance,
                                     symbolType: SymbolType.GRAPHIC,
                                     firstFrame: 0,
                                     loop: LoopMode.LOOP,
                                     transformationPoint: { x: 0, y: 0 },
-                                    Matrix3D: STD_MATRIX3D_DATA
+                                    matrix3D: STD_MATRIX3D_DATA
                                 }
                             }
                         }
 
                         // not needed - remove decomposed matrix to save some memory
-                        delete element.SYMBOL_Instance.DecomposedMatrix;
+                        if ("decomposedMatrix" in element.symbolInstance)
+                            delete element.symbolInstance.decomposedMatrix;
                     }
                 }
             }
@@ -215,5 +217,78 @@ package starling.extensions.animate
 
         public function get frameRate():Number { return _frameRate; }
         public function set frameRate(value:Number):void { _frameRate = value; }
+
+        // data normalization
+
+        private static function normalizeJsonKeys(data:Object):Object
+        {
+            if (data is String || data is Number || data is int) return data;
+            else if (data is Array)
+            {
+                var array:Array = [];
+                var arrayLength:uint = data.length;
+                for (var i:int=0; i<arrayLength; ++i)
+                    array[i] = normalizeJsonKeys(data[i]);
+                return array;
+            }
+            else
+            {
+                var out:Object = {};
+                for (var key:String in data)
+                {
+                    var value:Object = normalizeJsonKeys(data[key]);
+                    if (key in JsonKeys) key = JsonKeys[key];
+                    out[key] = value;
+                }
+                return out;
+            }
+        }
+
+        private static const JsonKeys:Object =
+        {
+            // fix inconsistent names
+            ANIMATION: "animation",
+            ATLAS_SPRITE_instance: "atlasSpriteInstance",
+            DecomposedMatrix: "decomposedMatrix",
+            Frames: "frames",
+            Instance_Name: "instanceName",
+            Layer_name: "layerName",
+            LAYERS: "layers",
+            Matrix3D: "matrix3D",
+            Position: "position",
+            Rotation: "rotation",
+            Scaling: "scaling",
+            SYMBOL_DICTIONARY: "symbolDictionary",
+            SYMBOL_Instance: "symbolInstance",
+            SYMBOL_name: "symbolName",
+            Symbols: "symbols",
+            TIMELINE: "timeline",
+
+            // fix shortened names
+            AN: "animation",
+            ASI: "atlasSpriteInstance",
+            BM: "bitmap",
+            DU: "duration",
+            E: "elements",
+            FF: "firstFrame",
+            FR: "frames",
+            FRT: "framerate",
+            I: "index",
+            IN: "instanceName",
+            L: "layers",
+            LN: "layerName",
+            LP: "loop",
+            M3D: "matrix3D",
+            MD: "metadata",
+            N: "name",
+            POS: "position",
+            S: "symbols",
+            SD: "symbolDictionary",
+            SI: "symbolInstance",
+            SN: "symbolName",
+            ST: "symbolType",
+            TL: "timeline",
+            TRP: "transformationPoint"
+        };
     }
 }

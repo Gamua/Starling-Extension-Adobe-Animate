@@ -33,10 +33,10 @@ package starling.extensions.animate
             _data = data;
             _atlas = atlas;
             _composedFrame = -1;
-            _numLayers = data.TIMELINE.LAYERS.length;
+            _numLayers = data.timeline.layers.length;
             _numFrames = getNumFrames();
             _frameLabels = getFrameLabels();
-            _symbolName = data.SYMBOL_name;
+            _symbolName = data.symbolName;
             _type = SymbolType.GRAPHIC;
             _loopMode = LoopMode.LOOP;
 
@@ -96,10 +96,10 @@ package starling.extensions.animate
 
             for (var i:int=0; i<numElements; ++i)
             {
-                var elementData:Object = elements[i].SYMBOL_Instance;
+                var elementData:Object = elements[i].symbolInstance;
                 var oldSymbol:Symbol = layer.numChildren > i ? layer.getChildAt(i) as Symbol : null;
                 var newSymbol:Symbol = null;
-                var symbolName:String = elementData.SYMBOL_name;
+                var symbolName:String = elementData.symbolName;
 
                 if (!_atlas.hasSymbol(symbolName))
                     symbolName = BITMAP_SYMBOL_NAME;
@@ -118,7 +118,7 @@ package starling.extensions.animate
                     layer.addChildAt(newSymbol, i);
                 }
 
-                newSymbol.setTransformationMatrix(elementData.Matrix3D);
+                newSymbol.setTransformationMatrix(elementData.matrix3D);
                 newSymbol.setBitmap(elementData.bitmap);
                 newSymbol.setColor(elementData.color);
                 newSymbol.setLoop(elementData.loop);
@@ -157,7 +157,7 @@ package starling.extensions.animate
             for (var i:int = 0; i<_numLayers; ++i)
             {
                 var layer:Sprite = new Sprite();
-                layer.name = getLayerData(i).Layer_name;
+                layer.name = getLayerData(i).layerName;
                 _layers.addChild(layer);
             }
         }
@@ -179,8 +179,8 @@ package starling.extensions.animate
                     addChild(_bitmap);
                 }
 
-                _bitmap.x = data.Position.x;
-                _bitmap.y = data.Position.y;
+                _bitmap.x = data.position.x;
+                _bitmap.y = data.position.y;
             }
             else if (_bitmap)
             {
@@ -211,13 +211,13 @@ package starling.extensions.animate
 
         private function setLoop(data:String):void
         {
-            if (data) _loopMode = data;
+            if (data) _loopMode = LoopMode.parse(data);
             else _loopMode = LoopMode.LOOP;
         }
 
         private function setType(data:String):void
         {
-            if (data) _type = data;
+            if (data) _type = SymbolType.parse(data);
         }
 
         private function getNumFrames():int
@@ -226,7 +226,7 @@ package starling.extensions.animate
 
             for (var i:int=0; i<_numLayers; ++i)
             {
-                var frameDates:Array = getLayerData(i).Frames as Array;
+                var frameDates:Array = getLayerData(i).frames as Array;
                 var numFrameDates:int = frameDates ? frameDates.length : 0;
                 var layerNumFrames:int = numFrameDates ? frameDates[0].index : 0;
 
@@ -246,7 +246,7 @@ package starling.extensions.animate
 
             for (var i:int=0; i<_numLayers; ++i)
             {
-                var frameDates:Array = getLayerData(i).Frames as Array;
+                var frameDates:Array = getLayerData(i).frames as Array;
                 var numFrameDates:int = frameDates ? frameDates.length : 0;
 
                 for (var j:int=0; j<numFrameDates; ++j)
@@ -343,12 +343,12 @@ package starling.extensions.animate
 
         private function getLayerData(layerIndex:int):Object
         {
-            return _data.TIMELINE.LAYERS[layerIndex];
+            return _data.timeline.layers[layerIndex];
         }
 
         private function getFrameData(layerIndex:int, frameIndex:int):Object
         {
-            var frames:Array = getLayerData(layerIndex).Frames;
+            var frames:Array = getLayerData(layerIndex).frames;
             var numFrames:int = frames.length;
 
             for (var i:int=0; i<numFrames; ++i)

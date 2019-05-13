@@ -15,5 +15,19 @@ package starling.extensions.animate
         {
             return value == GRAPHIC || value == MOVIE_CLIP || value == BUTTON;
         }
+
+        public static function parse(value:String):String
+        {
+            switch (value)
+            {
+                case "G":
+                case GRAPHIC: return GRAPHIC;
+                case "MC":
+                case MOVIE_CLIP: return MOVIE_CLIP;
+                case "B":
+                case BUTTON: return BUTTON;
+                default: throw new ArgumentError("Invalid symbol type: " + value);
+            }
+        }
     }
 }
