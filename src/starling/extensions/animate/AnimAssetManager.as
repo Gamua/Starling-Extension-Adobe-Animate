@@ -61,7 +61,7 @@ package starling.extensions.animate
             var defaultName:String = super.getNameFromUrl(url);
             var defaultExt:String = super.getExtensionFromUrl(url);
 
-            if (defaultName == "spritemap" && (defaultExt == "png" || defaultExt == "atf"))
+            if (defaultName.match(/spritemap\d?/) && (defaultExt == "png" || defaultExt == "atf"))
                 return AnimationAtlasFactory.getName(url, defaultName, false);
             else
                 return defaultName;
@@ -124,7 +124,7 @@ class AnimationAtlasFactory extends JsonFactory
             stdName = stdName.replace(AnimationAtlasFactory.SPRITEMAP_SUFFIX, "");
         }
 
-        if ((stdName == "Animation" || stdName == "spritemap") && url.indexOf(separator) != -1)
+        if ((stdName == "Animation" || stdName.match(/spritemap\d*/)) && url.indexOf(separator) != -1)
         {
             var elements:Array = url.split(separator);
             var folderName:String = elements[elements.length - 2];
