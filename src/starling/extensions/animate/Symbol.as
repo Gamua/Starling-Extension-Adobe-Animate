@@ -201,7 +201,9 @@ package starling.extensions.animate
         {
             if (data)
             {
-                alpha = data.mode == "Alpha" || data.mode == "Advanced" ? data.alphaMultiplier : 1.0;
+                var mode:String = data.mode;
+                const ALPHA_MODES:Array = ["Alpha", "Advanced", "AD"];
+                alpha = (ALPHA_MODES.indexOf(mode) >= 0) ? data.alphaMultiplier : 1.0;
             }
             else
             {
