@@ -267,8 +267,10 @@ package starling.extensions.animate
 
             // fix shortened names
             AN: "animation",
+            AM: "alphaMultiplier",
             ASI: "atlasSpriteInstance",
             BM: "bitmap",
+            C: "color",
             DU: "duration",
             E: "elements",
             FF: "firstFrame",
@@ -281,6 +283,7 @@ package starling.extensions.animate
             LP: "loop",
             M3D: "matrix3D",
             MD: "metadata",
+            M: "mode",
             N: "name",
             POS: "position",
             S: "symbols",
