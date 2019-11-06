@@ -118,10 +118,14 @@ class AnimationAtlasFactory extends JsonFactory
         var separator:String = "/";
 
         // embedded classes are stripped of the suffix here
-        if (url == null && !addSuffix)
+        if (url == null)
         {
-            stdName = stdName.replace(AnimationAtlasFactory.ANIMATION_SUFFIX, "");
-            stdName = stdName.replace(AnimationAtlasFactory.SPRITEMAP_SUFFIX, "");
+            if (addSuffix) return stdName; // should already include suffix
+            else
+            {
+                stdName = stdName.replace(AnimationAtlasFactory.ANIMATION_SUFFIX, "");
+                stdName = stdName.replace(AnimationAtlasFactory.SPRITEMAP_SUFFIX, "");
+            }
         }
 
         if ((stdName == "Animation" || stdName.match(/spritemap\d*/)) && url.indexOf(separator) != -1)
