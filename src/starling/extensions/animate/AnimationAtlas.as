@@ -32,6 +32,9 @@ package starling.extensions.animate
 
         public function AnimationAtlas(data:Object, atlas:TextureAtlas)
         {
+            if (data  == null) throw new ArgumentError("data must not be null");
+            if (atlas == null) throw new ArgumentError("atlas must not be null");
+
             data = normalizeJsonKeys(data);
             parseData(data);
 

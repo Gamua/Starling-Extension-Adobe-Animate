@@ -76,6 +76,7 @@ import starling.assets.JsonFactory;
 import starling.extensions.animate.AnimationAtlas;
 import starling.extensions.animate.JsonTextureAtlas;
 import starling.textures.Texture;
+import starling.textures.TextureAtlas;
 
 class AnimationAtlasFactory extends JsonFactory
 {
@@ -97,15 +98,18 @@ class AnimationAtlasFactory extends JsonFactory
                 helper.addPostProcessor(function(assets:AssetManager):void
                 {
                     var texture:Texture = assets.getTexture(baseName);
-                    assets.addAsset(baseName, new JsonTextureAtlas(texture, json));
+                    if (texture == null) onError("Missing texture " + baseName);
+                    else assets.addAsset(baseName, new JsonTextureAtlas(texture, json));
                 }, 100);
             }
             else if ((json.ANIMATION && json.SYMBOL_DICTIONARY) || (json.AN && json.SD))
             {
                 helper.addPostProcessor(function(assets:AssetManager):void
                 {
-                    assets.addAsset(baseName, new AnimationAtlas(json,
-                        assets.getTextureAtlas(baseName)), AnimationAtlas.ASSET_TYPE);
+                    var atlas:TextureAtlas = assets.getTextureAtlas(baseName);
+                    if (atlas == null) onError("Missing texture atlas " + baseName);
+                    else assets.addAsset(baseName,
+                        new AnimationAtlas(json, atlas), AnimationAtlas.ASSET_TYPE);
                 });
             }
 
