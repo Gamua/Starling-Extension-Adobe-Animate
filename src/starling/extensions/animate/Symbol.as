@@ -179,8 +179,11 @@ package starling.extensions.animate
                     addChild(_bitmap);
                 }
 
-                _bitmap.x = data.position.x;
-                _bitmap.y = data.position.y;
+                if (data.position)
+                {
+                    _bitmap.x = data.position.x;
+                    _bitmap.y = data.position.y;
+                }
             }
             else if (_bitmap)
             {
