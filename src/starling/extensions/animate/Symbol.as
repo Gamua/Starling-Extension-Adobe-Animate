@@ -179,10 +179,14 @@ package starling.extensions.animate
                     addChild(_bitmap);
                 }
 
-                if (data.position)
+                var position:Object = data.position;
+                if (position == null && data.decomposedMatrix != null)
+                    position = data.decomposedMatrix.position;
+
+                if (position)
                 {
-                    _bitmap.x = data.position.x;
-                    _bitmap.y = data.position.y;
+                    _bitmap.x = position.x;
+                    _bitmap.y = position.y;
                 }
             }
             else if (_bitmap)
